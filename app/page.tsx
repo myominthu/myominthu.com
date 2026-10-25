@@ -200,25 +200,23 @@ export default function Home() {
         {/* Education */}
         <section id="education" className="section wrap">
           <h2 className="section-title">Education and certifications</h2>
-          <div className="table-wrap">
-            <table className="edu">
-              <thead>
-                <tr>
-                  <th scope="col">Year</th>
-                  <th scope="col">Qualification</th>
-                  <th scope="col">Institution</th>
-                </tr>
-              </thead>
-              <tbody>
-                {education.map((e) => (
-                  <tr key={e.name}>
-                    <td className="edu-year">{e.year}</td>
-                    <td>{e.name}</td>
-                    <td className="muted">{e.from}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="edu-grid">
+            {education.map((g) => (
+              <section key={g.key} className={`edu-group edu-${g.key}`} aria-label={g.title}>
+                <h3 className="edu-group-title">{g.title}</h3>
+                <ul className="edu-items">
+                  {g.items.map((e) => (
+                    <li key={e.name} className="edu-item">
+                      <span className="edu-year">{e.year}</span>
+                      <div className="edu-text">
+                        <p className="edu-name">{e.name}</p>
+                        <p className="edu-from">{e.from}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
           </div>
           <p className="footnote">
             Also: mentor, coach and leader in YSEALI projects in Myanmar. Languages: Burmese and

@@ -223,15 +223,46 @@ export const services: { name: string; detail: string }[] = [
   },
 ];
 
-export const education: { year: string; name: string; from: string }[] = [
-  { year: "2025", name: "Full-Stack Software Engineer", from: "IBM" },
-  { year: "2024", name: "Foundations of Project Management", from: "Google" },
-  { year: "2018", name: "YSEALI TechCamp Reconnect, Bangkok", from: "YSEALI / U.S. Department of State" },
-  { year: "2017", name: "YSEALI TechCamp ASEAN, Jakarta", from: "YSEALI / U.S. Department of State" },
-  { year: "2017", name: "A Generation of Advocates (certificate)", from: "U.S. Department of State" },
-  { year: "2016", name: "English for Career Development", from: "University of Pennsylvania" },
-  { year: "2015", name: "Cyberwar, Surveillance, and Security", from: "University of Adelaide (edX)" },
-  { year: "2011", name: "Instructor, IT Engineers Examination (ITEE)", from: "AOTS Japan and Myanmar Computer Federation" },
-  { year: "2007", name: "Third Prize, Programmer Challenge", from: "Yatanarpon Teleport opening ceremony" },
-  { year: "2007", name: "Bachelor of Computer Science", from: "University of Computer Studies, Mandalay" },
+// Education grouped by kind; each group gets its own colour on the page.
+export type EduGroup = {
+  key: "certs" | "state" | "degree" | "teaching";
+  title: string;
+  items: { year: string; name: string; from: string }[];
+};
+
+export const education: EduGroup[] = [
+  {
+    key: "certs",
+    title: "Professional certificates",
+    items: [
+      { year: "2025", name: "Full-Stack Software Engineer", from: "IBM" },
+      { year: "2024", name: "Foundations of Project Management", from: "Google" },
+      { year: "2016", name: "English for Career Development", from: "University of Pennsylvania" },
+      { year: "2015", name: "Cyberwar, Surveillance, and Security", from: "University of Adelaide (edX)" },
+    ],
+  },
+  {
+    key: "state",
+    title: "YSEALI and U.S. Department of State",
+    items: [
+      { year: "2018", name: "YSEALI TechCamp Reconnect, Bangkok", from: "YSEALI / U.S. Department of State" },
+      { year: "2017", name: "YSEALI TechCamp ASEAN, Jakarta", from: "YSEALI / U.S. Department of State" },
+      { year: "2017", name: "A Generation of Advocates (certificate)", from: "U.S. Department of State" },
+    ],
+  },
+  {
+    key: "degree",
+    title: "Degree and awards",
+    items: [
+      { year: "2007", name: "Bachelor of Computer Science (B.C.Sc)", from: "University of Computer Studies, Mandalay" },
+      { year: "2007", name: "Third Prize, Programmer Challenge (car parking system software)", from: "Yatanarpon Teleport opening ceremony" },
+    ],
+  },
+  {
+    key: "teaching",
+    title: "Teaching",
+    items: [
+      { year: "2011", name: "Instructor, IT Engineers Examination (ITEE)", from: "AOTS Japan and Myanmar Computer Federation" },
+    ],
+  },
 ];
