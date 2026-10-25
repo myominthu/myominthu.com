@@ -1,0 +1,182 @@
+// All site content lives here. Update this file when the CV changes.
+
+export const person = {
+  name: "Myo Min Thu",
+  nickname: "DJ",
+  title: "IT Director, Cyber Security",
+  focus: "EdTech and robotics",
+  location: "Yangon, Myanmar",
+  intro:
+    "I run IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore. I started as a programmer in 2007, and I still build, test and coach: platforms for schools, security programmes for families' data, and robotics teams for the world stage.",
+  email: "dj.myominthu@gmail.com",
+  phone: "+959976803816",
+  linkedin: "https://www.linkedin.com/in/myominthu/",
+  website: "https://myominthu.com",
+  cv: "/files/Myo_Min_Thu_CV.pdf",
+};
+
+export const facts: { value: string; label: string }[] = [
+  { value: "19 years", label: "in IT and cybersecurity" },
+  { value: "45 people", label: "in the IT department I lead" },
+  { value: "3 schools", label: "across Myanmar, Thailand and Singapore" },
+  { value: "500,000+", label: "people reached by ACCTC Myanmar" },
+  { value: "4 finals", label: "at the WRO International Finals" },
+];
+
+export type Role = {
+  title: string;
+  org: string;
+  years: string;
+  points: string[];
+};
+
+export const roles: Role[] = [
+  {
+    title: "IT Director in charge of Cyber Security",
+    org: "ILBC Holding Company Limited",
+    years: "2026 to present",
+    points: [
+      "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
+      "Designed the digital architecture of Singapore Global International School (SGIS), connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+      "Responsible for data protection of admissions and family data.",
+    ],
+  },
+  {
+    title: "IT Director and Head of Cyber Security Team",
+    org: "International Language and Business Centre (ILBC), Myanmar",
+    years: "2008 to present",
+    points: [
+      "Lead a 45-person IT department at the largest international school in Myanmar.",
+      "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests. Wrote the findings and required controls into the school's IT policy and SOP.",
+      "In 2020, moved the school system online within two months for over 8,000 students and 2,000 teachers. No successful cyberattacks since.",
+      "STEAM Coordinator, bringing robotics and coding into the classroom.",
+    ],
+  },
+  {
+    title: "Technology Manager",
+    org: "Saungpokki Company Limited",
+    years: "2023 to present",
+    points: [
+      "Led the Saungpokki Online Learning Platform: building apps and leading developers, the product owner, stakeholders and cross-functional departments.",
+      "Security-tested the apps and web platform before launch. Used by schools in Thailand since 2024.",
+    ],
+  },
+  {
+    title: "Founder, ACCTC Myanmar",
+    org: "Awareness Campaign of Cyber Crime and Transnational Crime (YSEALI TechCamp grant)",
+    years: "2018 to present",
+    points: [
+      "Ran a public campaign on cybercrime, transnational crime and fake news, online and in person at the American Center, youth events and district events.",
+      "Spoke on Mandalay FM talk shows. The campaign reached over 500,000 people.",
+    ],
+  },
+  {
+    title: "National Coach",
+    org: "Myanmar World Robot Olympiad (WRO) Team",
+    years: "2018 to present",
+    points: [
+      "Guided teams to three national championships and four WRO International Finals.",
+    ],
+  },
+];
+
+export const earlier: { years: string; title: string; org: string; note: string }[] = [
+  {
+    years: "2015",
+    title: "Department Head, Web Development and Cyber Security Section",
+    org: "ILBC",
+    note: "Led the section, built school websites, trained junior staff and taught teachers new IT skills.",
+  },
+  {
+    years: "2011",
+    title: "Database Application Developer",
+    org: "ILBC",
+    note: "Built student information, exam reporting, HR, accounting and fingerprint attendance systems for branches nationwide.",
+  },
+  {
+    years: "2008",
+    title: "Assistant Database Programmer",
+    org: "ILBC",
+    note: "Ran student information and exam reporting systems; supported hardware, software and networks.",
+  },
+  {
+    years: "2007",
+    title: "Junior Programmer",
+    org: "Evolva Software House, Mandalay",
+    note: "Requirements analysis, database design and a point-of-sale system.",
+  },
+];
+
+export const wroFinals = [
+  { year: "2018", city: "Chiang Mai", country: "Thailand" },
+  { year: "2019", city: "Budapest", country: "Hungary" },
+  { year: "2024", city: "Izmir", country: "Türkiye" },
+  { year: "2025", city: "Singapore", country: "Singapore" },
+];
+
+export const skills: { group: string; items: string }[] = [
+  {
+    group: "Cybersecurity",
+    items:
+      "Vulnerability assessment, penetration testing, firewall and endpoint security, data protection, IT policy and SOP, awareness training",
+  },
+  {
+    group: "Cloud and DevOps",
+    items:
+      "AWS, Azure, Google Cloud, Docker, Kubernetes, Terraform, Ansible, CI/CD with GitHub Actions, Jenkins and Azure DevOps",
+  },
+  {
+    group: "AI and robotics",
+    items: "AI automation, custom AI solutions, robotics coaching and classroom robotics",
+  },
+  {
+    group: "Software and web",
+    items:
+      "PHP, ASP.NET, C#, JavaScript, React, Next.js, WordPress, SQL Server, MySQL, Oracle, SEO",
+  },
+  {
+    group: "Leadership",
+    items:
+      "Project and stakeholder management, digital transformation, coaching, public speaking",
+  },
+];
+
+export const services: { name: string; detail: string }[] = [
+  {
+    name: "Security assessments",
+    detail: "Vulnerability assessment and penetration testing, with findings written into policy you can act on.",
+  },
+  {
+    name: "School and EdTech systems",
+    detail: "Admissions, CRM, LMS and single sign-on, designed so data moves safely between them.",
+  },
+  {
+    name: "Cloud and infrastructure",
+    detail: "Migration, backup, disaster recovery and network setup on AWS, Azure or Google Cloud.",
+  },
+  {
+    name: "Software development",
+    detail: "Web and mobile apps, system integration and APIs, security-tested before launch.",
+  },
+  {
+    name: "Awareness training",
+    detail: "Cybersecurity and online safety sessions for staff, students, parents and communities.",
+  },
+  {
+    name: "Robotics and coding programmes",
+    detail: "STEAM curriculum, competition coaching and robotics labs for schools.",
+  },
+];
+
+export const education: { year: string; name: string; from: string }[] = [
+  { year: "2025", name: "Full-Stack Software Engineer", from: "IBM" },
+  { year: "2024", name: "Foundations of Project Management", from: "Google" },
+  { year: "2018", name: "YSEALI TechCamp Reconnect, Bangkok", from: "YSEALI / U.S. Department of State" },
+  { year: "2017", name: "YSEALI TechCamp ASEAN, Jakarta", from: "YSEALI / U.S. Department of State" },
+  { year: "2017", name: "A Generation of Advocates (certificate)", from: "U.S. Department of State" },
+  { year: "2016", name: "English for Career Development", from: "University of Pennsylvania" },
+  { year: "2015", name: "Cyberwar, Surveillance, and Security", from: "University of Adelaide (edX)" },
+  { year: "2011", name: "Instructor, IT Engineers Examination (ITEE)", from: "AOTS Japan and Myanmar Computer Federation" },
+  { year: "2007", name: "Third Prize, Programmer Challenge", from: "Yatanarpon Teleport opening ceremony" },
+  { year: "2007", name: "Bachelor of Computer Science", from: "University of Computer Studies, Mandalay" },
+];
