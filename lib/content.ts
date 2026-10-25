@@ -17,7 +17,6 @@ export const person = {
 
 export const facts: { value: string; label: string }[] = [
   { value: "19 years", label: "in IT and cybersecurity" },
-  { value: "45 people", label: "in the IT department I lead" },
   { value: "3 schools", label: "across Myanmar, Thailand and Singapore" },
   { value: "500,000+", label: "people reached by ACCTC Myanmar" },
   { value: "4 finals", label: "at the WRO International Finals" },
@@ -46,7 +45,7 @@ export const roles: Role[] = [
     org: "International Language and Business Centre (ILBC), Myanmar",
     years: "2008 to present",
     points: [
-      "Lead a 45-person IT department at the largest international school in Myanmar.",
+      "Lead the IT department at the largest international school in Myanmar.",
       "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests. Wrote the findings and required controls into the school's IT policy and SOP.",
       "In 2020, moved the school system online within two months for over 8,000 students and 2,000 teachers. No successful cyberattacks since.",
       "STEAM Coordinator, bringing robotics and coding into the classroom.",
