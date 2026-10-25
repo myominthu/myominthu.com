@@ -8,8 +8,6 @@ export const person = {
   location: "Yangon, Myanmar",
   intro:
     "I run IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore. I started as a programmer in 2007, and I still build, test and coach: platforms for schools, security programmes for families' data, and robotics teams for the world stage.",
-  email: "dj.myominthu@gmail.com",
-  phone: "+959976803816",
   linkedin: "https://www.linkedin.com/in/myominthu/",
   website: "https://myominthu.com",
   cv: "/files/Myo_Min_Thu_CV.pdf",
@@ -266,3 +264,43 @@ export const education: EduGroup[] = [
     ],
   },
 ];
+
+// ---------- Hero terminal ----------
+
+// Typed out on page load: [command, output]
+export const terminalIntro: [string, string][] = [
+  ["whoami", "Myo Min Thu (DJ), Yangon, Myanmar"],
+  ["cat role.txt", "IT Director, Cyber Security\nILBC Holding: Myanmar | Thailand | Singapore"],
+  ["vapt --scope schools", "assess > fix > write it into IT policy"],
+  ["wro --finals", "2018  2019  2024  2025   4 world finals"],
+  ["echo $NEXT", "Type help, or tap a command below."],
+];
+
+export const terminalShortcuts = ["help", "skills", "wro", "ls", "contact"];
+
+export const terminalCommands: Record<string, string> = {
+  help: [
+    "whoami     who I am",
+    "role       current roles",
+    "skills     what I work with",
+    "wro        robotics world finals",
+    "education  degrees and certificates",
+    "contact    how to reach me",
+    "ls         list page sections",
+    "cd <name>  jump to a section",
+    "clear      clear the screen",
+  ].join("\n"),
+  whoami: "Myo Min Thu (DJ). 19 years in IT and cybersecurity. Started as a programmer in 2007.",
+  role: roles.map((r) => `- ${r.title}, ${r.org}`).join("\n"),
+  skills: skills.map((s) => `${s.group}: ${s.items}`).join("\n\n"),
+  wro: wroFinals.map((f) => wroLabel(f)).join("\n"),
+  education: education
+    .flatMap((g) => g.items)
+    .map((e) => `${e.year}  ${e.name}`)
+    .join("\n"),
+  contact: "LinkedIn: linkedin.com/in/myominthu\nOr: cd contact",
+  cv: "Use the Download CV button at the top of the page.",
+  ls: "experience/  robotics/  skills/  services/  education/  contact/",
+  sudo: "Permission denied. This incident will be reported to the IT Director. (That's me.)",
+  hack: "Nice try. Ask me about a VAPT engagement instead: cd contact",
+};

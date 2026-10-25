@@ -1,6 +1,7 @@
 import Image from "next/image";
 import WroTrack from "@/components/WroTrack";
 import WroGallery from "@/components/WroGallery";
+import Terminal from "@/components/Terminal";
 import {
   person,
   facts,
@@ -27,7 +28,6 @@ const jsonLd = {
   alternateName: person.nickname,
   jobTitle: person.title,
   url: person.website,
-  email: `mailto:${person.email}`,
   sameAs: [person.linkedin],
   worksFor: { "@type": "Organization", name: "ILBC Holding Company Limited" },
   address: { "@type": "PostalAddress", addressLocality: "Yangon", addressCountry: "MM" },
@@ -62,6 +62,7 @@ export default function Home() {
 
       <main id="main">
         {/* Hero */}
+        <div className="hero-band">
         <section id="top" className="hero wrap">
           <div className="hero-text">
             <h1 className="hero-name">
@@ -77,14 +78,11 @@ export default function Home() {
             </p>
             <p className="hero-intro">{person.intro}</p>
             <div className="hero-actions">
-              <a className="btn" href={`mailto:${person.email}`}>
-                Email me
+              <a className="btn" href={person.linkedin} rel="noopener" target="_blank">
+                Message me on LinkedIn
               </a>
               <a className="btn btn-ghost" href={person.cv} download>
                 Download CV (PDF)
-              </a>
-              <a className="text-link" href={person.linkedin} rel="noopener" target="_blank">
-                LinkedIn
               </a>
             </div>
           </div>
@@ -99,7 +97,9 @@ export default function Home() {
             />
             <figcaption>Bangkok, October 2026</figcaption>
           </figure>
+          <Terminal />
         </section>
+        </div>
 
         <section className="facts-band" aria-label="At a glance">
           <dl className="wrap facts">
@@ -232,28 +232,12 @@ export default function Home() {
               I&apos;m open to collaborations, consulting, speaking and mentoring in cybersecurity,
               EdTech and robotics.
             </p>
-            <dl className="contact-list">
-              <div>
-                <dt>Email</dt>
-                <dd>
-                  <a href={`mailto:${person.email}`}>{person.email}</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Phone</dt>
-                <dd>
-                  <a href={`tel:${person.phone}`}>+95 9 976 803 816</a>
-                </dd>
-              </div>
-              <div>
-                <dt>LinkedIn</dt>
-                <dd>
-                  <a href={person.linkedin} target="_blank" rel="noopener">
-                    linkedin.com/in/myominthu
-                  </a>
-                </dd>
-              </div>
-            </dl>
+            <div className="contact-actions">
+              <a className="btn btn-light" href={person.linkedin} target="_blank" rel="noopener">
+                Message me on LinkedIn
+              </a>
+              <p className="contact-handle">linkedin.com/in/myominthu</p>
+            </div>
           </div>
         </section>
       </main>

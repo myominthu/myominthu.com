@@ -3,6 +3,8 @@ import "@fontsource-variable/bricolage-grotesque";
 import "@fontsource/ibm-plex-sans/400.css";
 import "@fontsource/ibm-plex-sans/500.css";
 import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
 
 const description =
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2B2F33",
+  themeColor: "#6340D8",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
