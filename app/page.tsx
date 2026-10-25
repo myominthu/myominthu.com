@@ -1,5 +1,6 @@
 import Image from "next/image";
 import WroTrack from "@/components/WroTrack";
+import WroGallery from "@/components/WroGallery";
 import {
   person,
   facts,
@@ -160,6 +161,7 @@ export default function Home() {
               Myanmar STEM Robot Competition 2018.
             </p>
             <WroTrack />
+            <WroGallery />
           </div>
         </section>
 

@@ -75,7 +75,7 @@ export const roles: Role[] = [
     org: "Myanmar World Robot Olympiad (WRO) Team",
     years: "2018 to present",
     points: [
-      "Guided teams to three national championships and four WRO International Finals.",
+      "Guided teams to three national championships and four WRO International Finals: WRO 2018 - Chiang Mai, Thailand; WRO 2019 - Budapest, Hungary; WRO 2024 - Izmir, Türkiye; WRO 2025 - Singapore.",
     ],
   },
 ];
@@ -107,11 +107,67 @@ export const earlier: { years: string; title: string; org: string; note: string 
   },
 ];
 
+// Label format: "WRO 2018 - Chiang Mai, Thailand"
 export const wroFinals = [
-  { year: "2018", city: "Chiang Mai", country: "Thailand" },
-  { year: "2019", city: "Budapest", country: "Hungary" },
-  { year: "2024", city: "Izmir", country: "Türkiye" },
-  { year: "2025", city: "Singapore", country: "Singapore" },
+  { year: "2018", place: "Chiang Mai, Thailand" },
+  { year: "2019", place: "Budapest, Hungary" },
+  { year: "2024", place: "Izmir, Türkiye" },
+  { year: "2025", place: "Singapore" },
+];
+
+export const wroLabel = (f: { year: string; place: string }) =>
+  `WRO ${f.year} - ${f.place}`;
+
+// Photos per final, newest first. Files live in public/images/wro/.
+// To add 2018 or 2019 photos, drop the files in that folder and add entries here.
+export const wroPhotos: {
+  year: string;
+  src: string;
+  width: number;
+  height: number;
+  caption: string;
+  alt: string;
+}[] = [
+  {
+    year: "2025",
+    src: "/images/wro/wro-2025-opening-ceremony.webp",
+    width: 1050,
+    height: 1400,
+    caption: "Opening ceremony, 26 November 2025",
+    alt: "Audience facing the stage screen reading Opening Ceremony, WRO International Final 2025, Singapore",
+  },
+  {
+    year: "2025",
+    src: "/images/wro/wro-2025-team-hcb-homecare-bot.webp",
+    width: 1050,
+    height: 1400,
+    caption: "Team HCB with HomeCare Bot, Future Innovators Senior",
+    alt: "Three Myanmar students giving thumbs up beside their HomeCare Bot robot and waste analyser at their booth",
+  },
+  {
+    year: "2025",
+    src: "/images/wro/wro-2025-team-hcb-booth.webp",
+    width: 1400,
+    height: 1050,
+    caption: "Team HCB and friends at the Myanmar booth",
+    alt: "A group of students and coaches posing in front of the Team HCB HomeCare Bot booth",
+  },
+  {
+    year: "2024",
+    src: "/images/wro/wro-2024-flag-ceremony.webp",
+    width: 1400,
+    height: 788,
+    caption: "Flag ceremony, Myanmar on stage",
+    alt: "Students on stage holding national flags while the screen shows Myanmar at WRO Türkiye 2024",
+  },
+  {
+    year: "2024",
+    src: "/images/wro/wro-2024-ilbc-ascendants.webp",
+    width: 1050,
+    height: 1400,
+    caption: "ILBC Ascendants, Future Innovators Senior",
+    alt: "Four ILBC Ascendants team members standing with their humanoid robot at their booth",
+  },
 ];
 
 export const skills: { group: string; items: string }[] = [

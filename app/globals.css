@@ -615,6 +615,53 @@ a:hover {
   }
 }
 
+/* ---------- WRO photo gallery ---------- */
+
+.gallery {
+  margin-top: 64px;
+  display: grid;
+  gap: 48px;
+}
+
+.gallery-title {
+  font-size: var(--t-md);
+  padding-top: 14px;
+  border-top: 2px solid var(--ink);
+}
+
+.gallery-row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.gallery-item {
+  margin: 0;
+  min-width: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--paper);
+}
+
+.gallery-item figcaption {
+  margin-top: 8px;
+  font-size: var(--t-sm);
+  color: var(--steel);
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .gallery-item {
+    flex-basis: 100% !important;
+  }
+}
+
 /* ---------- Skills ---------- */
 
 .skills {

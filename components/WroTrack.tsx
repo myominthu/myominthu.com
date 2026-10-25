@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { wroFinals } from "@/lib/content";
+import { wroFinals, wroLabel } from "@/lib/content";
 
 // A WRO-style line-following mat: black line on white, coloured stop zones.
 // One small robot drives the route once when the track scrolls into view.
@@ -54,8 +54,7 @@ export default function WroTrack() {
         aria-labelledby="track-title"
       >
         <title id="track-title">
-          Route of Myanmar WRO teams to the International Finals: Chiang Mai 2018,
-          Budapest 2019, Izmir 2024, Singapore 2025.
+          Route of Myanmar WRO teams to the International Finals: {wroFinals.map(wroLabel).join("; ")}.
         </title>
 
         {/* start zone */}
@@ -81,10 +80,10 @@ export default function WroTrack() {
                 className={`track-zone track-zone-${i}`}
               />
               <text x={s.x} y={yearY} textAnchor="middle" className="track-year">
-                {f.year}
+                WRO {f.year}
               </text>
               <text x={s.x} y={cityY} textAnchor="middle" className="track-label-small">
-                {f.city}
+                {f.place}
               </text>
             </g>
           );
@@ -115,10 +114,8 @@ export default function WroTrack() {
       <ol className="track-list">
         {wroFinals.map((f) => (
           <li key={f.year}>
-            <span className="track-list-year">{f.year}</span>
-            <span>
-              {f.city === f.country ? f.city : `${f.city}, ${f.country}`}
-            </span>
+            <span className="track-list-year">WRO {f.year}</span>
+            <span>- {f.place}</span>
           </li>
         ))}
       </ol>
