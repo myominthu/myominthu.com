@@ -258,8 +258,12 @@ export const education: EduGroup[] = [
   },
   {
     key: "teaching",
-    title: "Teaching",
+    title: "Coaching and teaching",
     items: [
+      { year: "2025", name: "WRO Coach Certificate, WRO 2025 - Singapore", from: "World Robot Olympiad Association" },
+      { year: "2024", name: "WRO Coach Certificate, WRO 2024 - Izmir, Türkiye", from: "World Robot Olympiad Association" },
+      { year: "2019", name: "WRO Coach Certificate, WRO 2019 - Budapest, Hungary", from: "World Robot Olympiad Association" },
+      { year: "2018", name: "WRO Coach Certificate, WRO 2018 - Chiang Mai, Thailand", from: "World Robot Olympiad Association" },
       { year: "2011", name: "Instructor, IT Engineers Examination (ITEE)", from: "AOTS Japan and Myanmar Computer Federation" },
     ],
   },
