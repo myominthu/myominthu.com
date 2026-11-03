@@ -579,6 +579,186 @@ a:hover {
   font-size: var(--t-lg);
 }
 
+/* ---------- Mission briefing screen ---------- */
+/* A mission-control monitor: phosphor text on dark forest glass. */
+
+.brief {
+  margin-top: 40px;
+  background: var(--term-bg);
+  color: var(--term-fg);
+  border-radius: 18px;
+  font-family: var(--mono);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 60px -30px rgba(15, 29, 23, 0.6);
+}
+
+/* faint scanlines on the glass */
+.brief::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+.brief-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  padding: 14px 22px;
+  border-bottom: 1px solid rgba(230, 242, 234, 0.1);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--term-dim);
+}
+
+.brief-title {
+  margin-right: auto;
+}
+
+.brief-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--term-ok);
+  box-shadow: 0 0 8px var(--term-ok);
+}
+
+.brief.is-typing .brief-led,
+.brief.is-speaking .brief-led {
+  animation: blink 1s steps(1) infinite;
+}
+
+.brief-play {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 227, 176, 0.35);
+  background: rgba(143, 227, 176, 0.1);
+  color: var(--term-fg);
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.brief-play:hover {
+  background: rgba(143, 227, 176, 0.2);
+}
+
+.brief-play:focus-visible {
+  outline-color: var(--term-ok);
+}
+
+.brief-wave {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 14px;
+}
+
+.brief-wave i {
+  display: block;
+  width: 2px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--term-ok);
+}
+
+.brief-wave i:nth-child(2) { height: 10px; }
+.brief-wave i:nth-child(3) { height: 14px; }
+.brief-wave i:nth-child(4) { height: 8px; }
+
+.brief.is-speaking .brief-wave i {
+  animation: wave 0.9s ease-in-out infinite;
+}
+
+.brief.is-speaking .brief-wave i:nth-child(2) { animation-delay: 0.15s; }
+.brief.is-speaking .brief-wave i:nth-child(3) { animation-delay: 0.3s; }
+.brief.is-speaking .brief-wave i:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes wave {
+  50% {
+    transform: scaleY(0.35);
+  }
+}
+
+.brief-screen {
+  list-style: none;
+  margin: 0;
+  padding: clamp(20px, 3vw, 32px) clamp(20px, 3vw, 32px) clamp(24px, 3.4vw, 36px);
+  display: grid;
+  gap: 14px;
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  line-height: 1.55;
+}
+
+.brief-line {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr);
+  gap: 18px;
+  min-height: 1.55em;
+}
+
+.brief-label {
+  color: var(--term-dim);
+  letter-spacing: 0.1em;
+  font-size: 0.85em;
+  padding-top: 0.12em;
+}
+
+.brief-text {
+  color: var(--term-ok);
+  text-shadow: 0 0 10px rgba(143, 227, 176, 0.25);
+}
+
+.brief-line:last-child .brief-text {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* lines not yet typed stay in the layout so nothing jumps */
+.brief.is-armed .brief-line {
+  visibility: hidden;
+}
+
+.brief-line.is-active .brief-text::after {
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--term-ok);
+  animation: blink 1s steps(1) infinite;
+}
+
+@media (max-width: 600px) {
+  .brief-line {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief.is-speaking .brief-wave i,
+  .brief.is-typing .brief-led,
+  .brief.is-speaking .brief-led {
+    animation: none;
+  }
+}
+
 /* ---------- Roles ---------- */
 
 .roles {

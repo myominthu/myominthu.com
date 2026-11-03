@@ -1,4 +1,4 @@
-// All site content lives here. Update this file when the CV changes.
+// All site content lives here.
 
 export const person = {
   name: "Myo Min Thu",
@@ -13,7 +13,6 @@ export const person = {
     "I run IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore. I started as a programmer in 2007, and I still build, test and coach: platforms for schools, security programmes for families' data, and robotics teams for the world stage.",
   linkedin: "https://www.linkedin.com/in/myominthu/",
   website: "https://myominthu.com",
-  cv: "/files/Myo_Min_Thu_CV.pdf",
 };
 
 export const facts: { value: string; label: string }[] = [
@@ -306,8 +305,17 @@ export const terminalCommands: Record<string, string> = {
     .map((e) => `${e.year}  ${e.name}`)
     .join("\n"),
   contact: "LinkedIn: linkedin.com/in/myominthu\nOr: cd contact",
-  cv: "Use the Download CV button at the top of the page.",
   ls: "experience/  robotics/  skills/  services/  education/  contact/",
   sudo: "Permission denied. This incident will be reported to the IT Director. (That's me.)",
   hack: "Nice try. Ask me about a VAPT engagement instead: cd contact",
 };
+
+// ---------- Mission briefing (summary of the current role) ----------
+// Typed out on screen like a mission control console, and read aloud on request.
+export const briefing: { label: string; text: string }[] = [
+  { label: "MISSION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited." },
+  { label: "SCOPE", text: "Three schools. Three countries. Myanmar, Thailand, Singapore." },
+  { label: "SGIS", text: "Digital architecture designed: parent submissions, to CRM, to admissions. Approved. Now live." },
+  { label: "DATA", text: "Admissions and family data: protected and secure." },
+  { label: "STATUS", text: "All systems go." },
+];

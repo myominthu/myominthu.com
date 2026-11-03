@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import WroTrack from "@/components/WroTrack";
 import WroGallery from "@/components/WroGallery";
 import Terminal from "@/components/Terminal";
+import Briefing from "@/components/Briefing";
 import {
   person,
   facts,
@@ -58,9 +59,6 @@ export default async function Home() {
               ))}
             </ul>
           </nav>
-          <a className="btn btn-small" href={person.cv} download>
-            Download CV
-          </a>
         </div>
       </header>
 
@@ -79,8 +77,8 @@ export default async function Home() {
               <a className="btn" href={person.linkedin} rel="noopener" target="_blank">
                 Message me on LinkedIn
               </a>
-              <a className="btn btn-ghost" href={person.cv} download>
-                Download CV (PDF)
+              <a className="btn btn-ghost" href="#experience">
+                See my work
               </a>
             </div>
           </div>
@@ -117,6 +115,7 @@ export default async function Home() {
         {/* Current roles */}
         <section id="experience" className="section wrap">
           <h2 className="section-title">What I do now</h2>
+          <Briefing />
           <div className="roles">
             {roles.map((r) => (
               <article key={r.title} className="role">

@@ -14,8 +14,10 @@ All text lives in `lib/content.ts`: profile, facts, roles, career path, WRO fina
 | `app/page.tsx` | Page structure |
 | `app/globals.css` | Colours, type and layout |
 | `components/WroTrack.tsx` | The WRO finals track and robot animation |
+| `components/Briefing.tsx`, `lib/briefing.js` | Mission briefing screen: typing and spoken summary |
+| `components/Terminal.tsx`, `lib/terminal.js` | Interactive hero terminal |
+| `middleware.ts` | Nonce-based Content Security Policy |
 | `public/images/` | Portrait and social share image |
-| `public/files/Myo_Min_Thu_CV.pdf` | Downloadable CV (replace with a new PDF of the same name) |
 
 Adding a new WRO final: add it to `wroFinals` in `lib/content.ts` and add a stop to `STOPS` and the path in `components/WroTrack.tsx`.
 
