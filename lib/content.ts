@@ -333,7 +333,6 @@ export const education: EduGroup[] = [
 // ---------- Mission briefing: current position titles ----------
 // Typed out on screen like a mission control console, with typing beeps.
 export const briefing: { label: string; text: string }[] = [
-  { label: "POSITION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited" },
   { label: "POSITION", text: "IT Director and Head of Cyber Security Team, ILBC International School" },
   { label: "POSITION", text: "Technology Manager, Saungpokki Online Learning Platform" },
   { label: "POSITION", text: "National Coach, Myanmar World Robot Olympiad (WRO) Team" },

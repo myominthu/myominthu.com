@@ -200,6 +200,66 @@ a {
   background-size: auto, 32px 32px, 32px 32px;
 }
 
+/* tech illustration layer */
+.hero-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-net {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-net line {
+  stroke: rgba(191, 219, 254, 0.22);
+  stroke-width: 1;
+}
+
+.hero-net circle {
+  fill: rgba(191, 219, 254, 0.5);
+}
+
+.hero-icon {
+  position: absolute;
+  color: rgba(219, 234, 254, 0.2);
+  animation: hero-float 9s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+.hero-code {
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: rgba(191, 219, 254, 0.32);
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .hero-icon-sm,
+  .hero-code {
+    display: none;
+  }
+  .hero-icon {
+    color: rgba(219, 234, 254, 0.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon {
+    animation: none;
+  }
+}
+
 .hero-inner {
   position: relative;
   display: grid;
@@ -592,44 +652,99 @@ a {
 }
 
 /* ---------- Education ---------- */
+/* Four coloured blocks, one per kind of qualification. */
 
-.edu-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.edu-grid {
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
 }
 
-.edu-card {
+.edu-group {
+  --edu-bg: var(--blue-600);
+  --edu-fg: var(--white);
+  --edu-soft: rgba(255, 255, 255, 0.8);
+  --edu-line: rgba(255, 255, 255, 0.25);
+  background: var(--edu-bg);
+  color: var(--edu-fg);
+  border-radius: 12px;
+  padding: 28px 30px;
+  min-width: 0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.edu-certs {
+  --edu-bg: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.edu-state {
+  --edu-bg: linear-gradient(135deg, #be185d, #db2777);
+}
+
+.edu-degree {
+  --edu-bg: linear-gradient(135deg, var(--blue-900), var(--indigo-800));
+}
+
+.edu-teaching {
+  --edu-bg: linear-gradient(135deg, #f59e0b, #fbbf24);
+  --edu-fg: var(--gray-900);
+  --edu-soft: rgba(17, 24, 39, 0.72);
+  --edu-line: rgba(17, 24, 39, 0.18);
+}
+
+.edu-group-title {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  padding: 20px 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
-}
-
-.edu-card .icon-circle {
-  width: 40px;
-  height: 40px;
-  margin: 0;
-}
-
-.edu-name {
-  font-size: 1.05rem;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--gray-900);
 }
 
-.edu-from {
-  color: var(--gray-600);
-  font-size: 0.95rem;
+.edu-items {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 14px;
+  padding-block: 12px;
+  border-top: 1px solid var(--edu-line);
 }
 
 .edu-year {
-  color: var(--blue-600);
-  font-size: 0.9rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.1;
   font-variant-numeric: tabular-nums;
+  padding-top: 1px;
+}
+
+.edu-name {
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.edu-from {
+  margin-top: 2px;
+  font-size: 0.92rem;
+  color: var(--edu-soft);
+}
+
+@media (max-width: 760px) {
+  .edu-grid {
+    grid-template-columns: 1fr;
+  }
+  .edu-item {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .edu-year {
+    font-size: 1.15rem;
+  }
 }
 
 /* ---------- Connect ---------- */

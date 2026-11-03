@@ -23,6 +23,7 @@ import {
 import WroTrack from "@/components/WroTrack";
 import WroGallery from "@/components/WroGallery";
 import Briefing from "@/components/Briefing";
+import HeroArt from "@/components/HeroArt";
 import {
   person,
   facts,
@@ -88,10 +89,6 @@ export default async function Home() {
   // Reading the nonce also makes this page render per request, which the CSP needs.
   const nonce = (await headers()).get("x-nonce") ?? undefined;
 
-  const eduList = education
-    .flatMap((g) => g.items.map((e) => ({ ...e, group: g.key })))
-    .sort((a, b) => Number(b.year) - Number(a.year));
-
   return (
     <>
       <a className="skip" href="#main">
@@ -102,6 +99,7 @@ export default async function Home() {
         {/* Hero */}
         <section id="top" className="hero">
           <div className="hero-bg" aria-hidden="true" />
+          <HeroArt />
           <div className="container hero-inner">
             <div className="hero-text">
               <h1 className="hero-name">{person.displayName}</h1>
@@ -283,25 +281,32 @@ export default async function Home() {
 
         {/* Education */}
         <section id="education" className="section section-gray">
-          <div className="container container-narrow">
+          <div className="container">
             <h2 className="section-title">Education &amp; Certifications</h2>
-            <ul className="edu-list">
-              {eduList.map((e) => {
-                const Icon = eduIcon[e.group] ?? Award;
+            <div className="edu-grid">
+              {education.map((g) => {
+                const Icon = eduIcon[g.key] ?? Award;
                 return (
-                  <li key={e.name} className="card edu-card">
-                    <span className="icon-circle">
-                      <Icon size={20} />
-                    </span>
-                    <div>
-                      <h3 className="edu-name">{e.name}</h3>
-                      <p className="edu-from">{e.from}</p>
-                      <p className="edu-year">{e.year}</p>
-                    </div>
-                  </li>
+                  <section key={g.key} className={`edu-group edu-${g.key}`} aria-label={g.title}>
+                    <h3 className="edu-group-title">
+                      <Icon size={20} aria-hidden="true" />
+                      {g.title}
+                    </h3>
+                    <ul className="edu-items">
+                      {g.items.map((e) => (
+                        <li key={e.name} className="edu-item">
+                          <span className="edu-year">{e.year}</span>
+                          <div>
+                            <p className="edu-name">{e.name}</p>
+                            <p className="edu-from">{e.from}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
                 );
               })}
-            </ul>
+            </div>
           </div>
         </section>
 
