@@ -528,7 +528,13 @@ a {
 }
 
 .panel .track {
-  margin-top: 8px;
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .panel {
+    background: var(--white) url("/images/world-map.svg") 62% 40% / auto 150% no-repeat;
+  }
 }
 
 /* ---------- Career journey ---------- */
@@ -905,7 +911,7 @@ a {
 .track-line {
   fill: none;
   stroke: var(--ink);
-  stroke-width: 14;
+  stroke-width: 6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -913,13 +919,13 @@ a {
 .track-start {
   fill: none;
   stroke: var(--steel);
-  stroke-width: 3;
-  stroke-dasharray: 6 5;
+  stroke-width: 2;
+  stroke-dasharray: 3 2.5;
 }
 
 .track-zone {
-  stroke: var(--tint);
-  stroke-width: 4;
+  stroke: var(--white);
+  stroke-width: 2.5;
 }
 
 .track-zone-0 { fill: var(--zone-blue); }
@@ -930,14 +936,20 @@ a {
 .track-year {
   font-family: var(--display);
   font-weight: 700;
-  font-size: 26px;
+  font-size: 14px;
   fill: var(--ink);
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 3px;
 }
 
 .track-label-small {
   font-family: var(--body);
-  font-size: 16px;
-  fill: var(--steel);
+  font-size: 10.5px;
+  fill: var(--gray-600);
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5px;
 }
 
 .robot-body { fill: var(--accent); stroke: var(--white); stroke-width: 2; }
@@ -955,7 +967,7 @@ a {
 
 .track[data-state="parked"] .track-robot {
   opacity: 1;
-  transform: translate(940px, 190px);
+  transform: translate(707px, 463px);
 }
 
 /* the list is the accessible text version, and the visual on small screens */
@@ -997,6 +1009,7 @@ a {
   .track-list li:nth-child(2)::before { background: var(--lotus); }
   .track-list li:nth-child(3)::before { background: var(--zone-yellow); }
   .track-list-year {
+    white-space: nowrap;
     font-family: var(--display);
     font-weight: 700;
     font-size: var(--t-md);
