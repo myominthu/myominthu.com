@@ -330,11 +330,14 @@ export const education: EduGroup[] = [
   },
 ];
 
-// ---------- Mission briefing (summary of the current role) ----------
+// ---------- Mission briefing: current position titles ----------
 // Typed out on screen like a mission control console, with typing beeps.
 export const briefing: { label: string; text: string }[] = [
-  { label: "MISSION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited." },
-  { label: "SCOPE", text: "Three schools. Three countries. Myanmar, Thailand, Singapore." },
-  { label: "SGIS", text: "Digital architecture designed: parent submissions, to CRM, to admissions. Approved. Now live." },
+  { label: "POSITION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited" },
+  { label: "POSITION", text: "IT Director and Head of Cyber Security Team, ILBC International School" },
+  { label: "POSITION", text: "Technology Manager, Saungpokki Online Learning Platform" },
+  { label: "POSITION", text: "National Coach, Myanmar World Robot Olympiad (WRO) Team" },
+  { label: "POSITION", text: "STEAM Coordinator, ILBC" },
+  { label: "POSITION", text: "Founder, ACCTC Myanmar" },
   { label: "STATUS", text: "All systems go." },
 ];

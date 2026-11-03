@@ -12,7 +12,7 @@ export default function Briefing() {
   }, []);
 
   return (
-    <div className="brief" ref={ref} role="region" aria-label="Mission briefing: current role">
+    <div className="brief" ref={ref} role="region" aria-label="Mission briefing: current positions">
       <div className="brief-bar">
         <span className="brief-led" aria-hidden="true" />
         <span className="brief-title">MISSION BRIEFING: ILBC HOLDING</span>
@@ -28,7 +28,7 @@ export default function Briefing() {
       </div>
       <ol className="brief-screen">
         {briefing.map((b) => (
-          <li key={b.label} className="brief-line">
+          <li key={b.text} className="brief-line">
             <span className="brief-label">{b.label}</span>
             <span className="brief-text">{b.text}</span>
           </li>
