@@ -16,7 +16,6 @@ export const person = {
 export const facts: { value: string; label: string }[] = [
   { value: "19 years", label: "in IT and cybersecurity" },
   { value: "3 schools", label: "across Myanmar, Thailand and Singapore" },
-  { value: "500,000+", label: "people reached by ACCTC Myanmar" },
   { value: "4 finals", label: "at the WRO International Finals" },
 ];
 
