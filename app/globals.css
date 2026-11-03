@@ -631,11 +631,11 @@ a:hover {
 }
 
 .brief.is-typing .brief-led,
-.brief.is-speaking .brief-led {
+.brief.is-sounding .brief-led {
   animation: blink 1s steps(1) infinite;
 }
 
-.brief-play {
+.brief-sound {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -653,11 +653,11 @@ a:hover {
   cursor: pointer;
 }
 
-.brief-play:hover {
+.brief-sound:hover {
   background: rgba(143, 227, 176, 0.2);
 }
 
-.brief-play:focus-visible {
+.brief-sound:focus-visible {
   outline-color: var(--term-ok);
 }
 
@@ -680,13 +680,13 @@ a:hover {
 .brief-wave i:nth-child(3) { height: 14px; }
 .brief-wave i:nth-child(4) { height: 8px; }
 
-.brief.is-speaking .brief-wave i {
+.brief.is-sounding .brief-wave i {
   animation: wave 0.9s ease-in-out infinite;
 }
 
-.brief.is-speaking .brief-wave i:nth-child(2) { animation-delay: 0.15s; }
-.brief.is-speaking .brief-wave i:nth-child(3) { animation-delay: 0.3s; }
-.brief.is-speaking .brief-wave i:nth-child(4) { animation-delay: 0.45s; }
+.brief.is-sounding .brief-wave i:nth-child(2) { animation-delay: 0.15s; }
+.brief.is-sounding .brief-wave i:nth-child(3) { animation-delay: 0.3s; }
+.brief.is-sounding .brief-wave i:nth-child(4) { animation-delay: 0.45s; }
 
 @keyframes wave {
   50% {
@@ -752,9 +752,9 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brief.is-speaking .brief-wave i,
+  .brief.is-sounding .brief-wave i,
   .brief.is-typing .brief-led,
-  .brief.is-speaking .brief-led {
+  .brief.is-sounding .brief-led {
     animation: none;
   }
 }

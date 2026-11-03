@@ -37,7 +37,6 @@ export const roles: Role[] = [
     points: [
       "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
       "Designed the digital architecture of Singapore Global International School (SGIS), connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
-      "Responsible for data protection of admissions and family data.",
     ],
   },
   {
@@ -316,6 +315,5 @@ export const briefing: { label: string; text: string }[] = [
   { label: "MISSION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited." },
   { label: "SCOPE", text: "Three schools. Three countries. Myanmar, Thailand, Singapore." },
   { label: "SGIS", text: "Digital architecture designed: parent submissions, to CRM, to admissions. Approved. Now live." },
-  { label: "DATA", text: "Admissions and family data: protected and secure." },
   { label: "STATUS", text: "All systems go." },
 ];
