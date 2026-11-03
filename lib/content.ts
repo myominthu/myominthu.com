@@ -4,13 +4,11 @@ export const person = {
   name: "Myo Min Thu",
   nickname: "DJ",
   displayName: "Myo Min Thu @ DJ",
-  mission:
-    "Technology that keeps schools safe, opens doors for young engineers, and respects the planet we share.",
-  title: "IT Director, Cyber Security",
-  focus: "EdTech and robotics",
-  location: "Yangon, Myanmar",
+  tagline:
+    "IT Director, Cyber Security | Technology Leader | EdTech Innovator | Full-Stack Developer | Cloud & DevOps Expert | WRO Coach",
   intro:
-    "I run IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore. I started as a programmer in 2007, and I still build, test and coach: platforms for schools, security programmes for families' data, and robotics teams for the world stage.",
+    "An IT professional with 19 years of experience in IT management, cybersecurity, cloud computing, software development, digital transformation, and STEM education. Today I lead IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore.",
+  location: "Yangon, Myanmar",
   linkedin: "https://www.linkedin.com/in/myominthu/",
   website: "https://myominthu.com",
 };
@@ -23,6 +21,7 @@ export const facts: { value: string; label: string }[] = [
 ];
 
 export type Role = {
+  icon: "shield" | "school" | "platform" | "robot" | "steam" | "megaphone";
   title: string;
   org: string;
   years: string;
@@ -31,6 +30,7 @@ export type Role = {
 
 export const roles: Role[] = [
   {
+    icon: "shield",
     title: "IT Director in charge of Cyber Security",
     org: "ILBC Holding Company Limited",
     years: "2026 to present",
@@ -40,41 +40,98 @@ export const roles: Role[] = [
     ],
   },
   {
+    icon: "school",
     title: "IT Director and Head of Cyber Security Team",
-    org: "International Language and Business Centre (ILBC), Myanmar",
+    org: "ILBC International School, Myanmar",
     years: "2008 to present",
     points: [
       "Lead the IT department at the largest international school in Myanmar.",
-      "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests. Wrote the findings and required controls into the school's IT policy and SOP.",
-      "In 2020, moved the school system online within two months for over 8,000 students and 2,000 teachers. No successful cyberattacks since.",
-      "STEAM Coordinator, bringing robotics and coding into the classroom.",
+      "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests, written into the school's IT policy and SOP.",
     ],
   },
   {
+    icon: "platform",
     title: "Technology Manager",
-    org: "Saungpokki Company Limited",
+    org: "Saungpokki Online Learning Platform",
     years: "2023 to present",
     points: [
-      "Led the Saungpokki Online Learning Platform: building apps and leading developers, the product owner, stakeholders and cross-functional departments.",
+      "Lead development of the EdTech platform with a local and Singapore-based team of developers, designers and engineers.",
       "Security-tested the apps and web platform before launch. Used by schools in Thailand since 2024.",
     ],
   },
   {
-    title: "Founder, ACCTC Myanmar",
-    org: "Awareness Campaign of Cyber Crime and Transnational Crime (YSEALI TechCamp grant)",
+    icon: "robot",
+    title: "National Coach",
+    org: "Myanmar's World Robot Olympiad (WRO) Team",
     years: "2018 to present",
     points: [
-      "Ran a public campaign on cybercrime, transnational crime and fake news, online and in person at the American Center, youth events and district events.",
-      "Spoke on Mandalay FM talk shows. The campaign reached over 500,000 people.",
+      "Coached teams to three national championships and four WRO International Finals.",
     ],
   },
   {
-    title: "National Coach",
-    org: "Myanmar World Robot Olympiad (WRO) Team",
+    icon: "steam",
+    title: "STEAM Coordinator",
+    org: "ILBC",
+    years: "Ongoing",
+    points: ["Promote STEM, robotics and coding in the classroom."],
+  },
+  {
+    icon: "megaphone",
+    title: "Founder",
+    org: "ACCTC Myanmar (YSEALI TechCamp grant)",
     years: "2018 to present",
     points: [
-      "Guided teams to three national championships and four WRO International Finals: WRO 2018 - Chiang Mai, Thailand; WRO 2019 - Budapest, Hungary; WRO 2024 - Izmir, Türkiye; WRO 2025 - Singapore.",
+      "Awareness campaign on cybercrime, transnational crime and fake news, reaching over 500,000 people.",
     ],
+  },
+];
+
+// ---------- Key achievements (old site + CV) ----------
+export const achievements: { title: string; text: string; chips: string[] }[] = [
+  {
+    title: "Cyber Security Leadership",
+    text: "Built ILBC's internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests. The findings and required controls are written into the school's IT policy and SOP.",
+    chips: ["VAPT", "Firewall upgrades", "IT policy & SOP"],
+  },
+  {
+    title: "Digital Transformation Leader",
+    text: "Led the move from traditional classrooms to virtual learning during the COVID-19 pandemic, implementing Technology-Integrated Learning (TIL) within two months for over 8,000 students and 2,000 teachers. No successful cyberattacks since.",
+    chips: ["Microsoft Education Solutions", "TIL"],
+  },
+  {
+    title: "Robotics Coaching Excellence",
+    text: "Coached teams that won three national championships in WRO Myanmar and represented the country at four WRO International Finals.",
+    chips: [
+      "WRO 2025 - Singapore",
+      "WRO 2024 - Izmir, Türkiye",
+      "WRO 2019 - Budapest, Hungary",
+      "WRO 2018 - Chiang Mai, Thailand",
+    ],
+  },
+  {
+    title: "EdTech Platform Development",
+    text: "Led the development of Saungpokki.com.sg, an EdTech online learning platform, managing a local and Singapore-based team. Security-tested before launch and used by schools in Thailand since 2024.",
+    chips: ["Full-Stack Development", "Project Management"],
+  },
+  {
+    title: "Large-Scale IT Management",
+    text: "Oversees more than 32,000 users in Microsoft 365 administration and expanded the TIL system by integrating multiple educational tools with single sign-on.",
+    chips: ["MS Teams (LMS)", "SORA e-Library", "Dugga", "Fedena ERP", "CodeMonkey"],
+  },
+  {
+    title: "SGIS Digital Architecture",
+    text: "Designed the digital architecture of Singapore Global International School, connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+    chips: ["CRM", "Admissions", "Integration"],
+  },
+  {
+    title: "Community Cyber Awareness",
+    text: "Founded ACCTC Myanmar with a YSEALI TechCamp grant: a public campaign on cybercrime, transnational crime and fake news at the American Center, youth and district events, and on Mandalay FM talk shows.",
+    chips: ["500,000+ people reached", "Mandalay FM"],
+  },
+  {
+    title: "YSEALI Leadership",
+    text: "YSEALI alumnus and mentor, coach and leader in YSEALI projects in Myanmar.",
+    chips: ["TechCamp ASEAN 2017, Jakarta", "TechCamp Reconnect 2018, Bangkok", "A Generation of Advocates 2017"],
   },
 ];
 
@@ -168,58 +225,61 @@ export const wroPhotos: {
   },
 ];
 
-export const skills: { group: string; items: string }[] = [
+export const expertise: { title: string; items: string[] }[] = [
   {
-    group: "Cybersecurity",
-    items:
-      "Vulnerability assessment, penetration testing, firewall and endpoint security, data protection, IT policy and SOP, awareness training",
+    title: "IT Leadership & Cyber Security",
+    items: [
+      "IT Infrastructure Management",
+      "Digital Transformation Strategy",
+      "Microsoft 365 & Azure AD Management",
+      "Vulnerability Assessment & Penetration Testing",
+      "Firewall, Endpoint & Network Security",
+      "IT Policy, SOP & Data Protection",
+      "Team Leadership & Project Management",
+    ],
   },
   {
-    group: "Cloud and DevOps",
-    items:
-      "AWS, Azure, Google Cloud, Docker, Kubernetes, Terraform, Ansible, CI/CD with GitHub Actions, Jenkins and Azure DevOps",
+    title: "Cloud Computing & DevOps",
+    items: [
+      "AWS, Azure, Google Cloud",
+      "Docker, Kubernetes, Terraform, Ansible",
+      "CI/CD: GitHub Actions, Jenkins, Azure DevOps",
+      "Infrastructure as Code (IaC)",
+      "Backup & Disaster Recovery",
+    ],
   },
   {
-    group: "AI and robotics",
-    items: "AI automation, custom AI solutions, robotics coaching and classroom robotics",
+    title: "Full-Stack Development",
+    items: [
+      "React.js, Next.js, JavaScript",
+      "Node.js, Express.js, PHP, ASP.Net, C#",
+      "MySQL, MSSQL, Oracle, Firebase",
+      "WordPress, Joomla, Drupal",
+      "Responsive Web Design & SEO",
+    ],
   },
   {
-    group: "Software and web",
-    items:
-      "PHP, ASP.NET, C#, JavaScript, React, Next.js, WordPress, SQL Server, MySQL, Oracle, SEO",
-  },
-  {
-    group: "Leadership",
-    items:
-      "Project and stakeholder management, digital transformation, coaching, public speaking",
+    title: "AI, Robotics & STEAM",
+    items: [
+      "AI Automation & Custom AI Solutions",
+      "Robotics Coaching (WRO)",
+      "STEAM Curriculum & Coding",
+      "Digital Marketing & Video Production",
+      "Public Speaking & Training",
+    ],
   },
 ];
 
-export const services: { name: string; detail: string }[] = [
-  {
-    name: "Security assessments",
-    detail: "Vulnerability assessment and penetration testing, with findings written into policy you can act on.",
-  },
-  {
-    name: "School and EdTech systems",
-    detail: "Admissions, CRM, LMS and single sign-on, designed so data moves safely between them.",
-  },
-  {
-    name: "Cloud and infrastructure",
-    detail: "Migration, backup, disaster recovery and network setup on AWS, Azure or Google Cloud.",
-  },
-  {
-    name: "Software development",
-    detail: "Web and mobile apps, system integration and APIs, security-tested before launch.",
-  },
-  {
-    name: "Awareness training",
-    detail: "Cybersecurity and online safety sessions for staff, students, parents and communities.",
-  },
-  {
-    name: "Robotics and coding programmes",
-    detail: "STEAM curriculum, competition coaching and robotics labs for schools.",
-  },
+export const services: { icon: string; name: string; detail: string }[] = [
+  { icon: "managed", name: "Managed IT Services", detail: "Continuous monitoring and maintenance of IT systems with proactive troubleshooting and technical support." },
+  { icon: "cloud", name: "Cloud Computing Solutions", detail: "Cloud migration, deployment, data backup, disaster recovery planning, and secure cloud storage." },
+  { icon: "lock", name: "Cybersecurity Services", detail: "Vulnerability assessment and penetration testing (VAPT), firewalls, encryption, and security policy you can act on." },
+  { icon: "code", name: "Software Development", detail: "Custom web and mobile apps, system integration and API connectivity, security-tested before launch." },
+  { icon: "server", name: "IT Infrastructure Management", detail: "Server and network setup, LAN and Wi-Fi, VPN and VoIP, optimisation, and IT asset lifecycle management." },
+  { icon: "idea", name: "Technology Consulting", detail: "IT roadmaps, digital transformation strategy, and advice on emerging technologies." },
+  { icon: "school", name: "School & EdTech Systems", detail: "Admissions, CRM, LMS and single sign-on, designed so data moves safely between them." },
+  { icon: "users", name: "Security Awareness Training", detail: "Cybersecurity and online safety sessions for staff, students, parents and communities." },
+  { icon: "robot", name: "Robotics & Coding Programmes", detail: "STEAM curriculum, competition coaching and robotics labs for schools." },
 ];
 
 // Education grouped by kind; each group gets its own colour on the page.
@@ -270,47 +330,8 @@ export const education: EduGroup[] = [
   },
 ];
 
-// ---------- Hero terminal ----------
-
-// Typed out on page load: [command, output]
-export const terminalIntro: [string, string][] = [
-  ["whoami", "Myo Min Thu @ DJ, Yangon, Myanmar"],
-  ["cat role.txt", "IT Director, Cyber Security\nILBC Holding: Myanmar | Thailand | Singapore"],
-  ["vapt --scope schools", "assess > fix > write it into IT policy"],
-  ["wro --finals", "2018  2019  2024  2025   4 world finals"],
-  ["echo $NEXT", "Type help, or tap a command below."],
-];
-
-export const terminalShortcuts = ["help", "skills", "wro", "ls", "contact"];
-
-export const terminalCommands: Record<string, string> = {
-  help: [
-    "whoami     who I am",
-    "role       current roles",
-    "skills     what I work with",
-    "wro        robotics world finals",
-    "education  degrees and certificates",
-    "contact    how to reach me",
-    "ls         list page sections",
-    "cd <name>  jump to a section",
-    "clear      clear the screen",
-  ].join("\n"),
-  whoami: "Myo Min Thu @ DJ. 19 years in IT and cybersecurity. Started as a programmer in 2007.",
-  role: roles.map((r) => `- ${r.title}, ${r.org}`).join("\n"),
-  skills: skills.map((s) => `${s.group}: ${s.items}`).join("\n\n"),
-  wro: wroFinals.map((f) => wroLabel(f)).join("\n"),
-  education: education
-    .flatMap((g) => g.items)
-    .map((e) => `${e.year}  ${e.name}`)
-    .join("\n"),
-  contact: "LinkedIn: linkedin.com/in/myominthu\nOr: cd contact",
-  ls: "experience/  robotics/  skills/  services/  education/  contact/",
-  sudo: "Permission denied. This incident will be reported to the IT Director. (That's me.)",
-  hack: "Nice try. Ask me about a VAPT engagement instead: cd contact",
-};
-
 // ---------- Mission briefing (summary of the current role) ----------
-// Typed out on screen like a mission control console, and read aloud on request.
+// Typed out on screen like a mission control console, with typing beeps.
 export const briefing: { label: string; text: string }[] = [
   { label: "MISSION", text: "IT Director in charge of Cyber Security, ILBC Holding Company Limited." },
   { label: "SCOPE", text: "Three schools. Three countries. Myanmar, Thailand, Singapore." },

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/hanken-grotesk";
+import "@fontsource-variable/inter";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
@@ -9,10 +9,10 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://myominthu.com"),
-  title: "Myo Min Thu @ DJ, IT Director and Cyber Security",
+  title: "Myo Min Thu @ DJ - Technology Leader, IT Director & Cyber Security",
   description,
   openGraph: {
-    title: "Myo Min Thu @ DJ, IT Director and Cyber Security",
+    title: "Myo Min Thu @ DJ - Technology Leader, IT Director & Cyber Security",
     description,
     url: "https://myominthu.com",
     siteName: "Myo Min Thu @ DJ",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1F6B45",
+  themeColor: "#1E3A8A",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
