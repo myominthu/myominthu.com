@@ -1160,52 +1160,56 @@ body::before {
 
 .track-leader {
   stroke: var(--indigo-800);
-  stroke-width: 1;
-  opacity: 0.5;
+  stroke-width: 0.8;
+  opacity: 0.45;
 }
 
-.track-place-dot {
+.track-pin {
   fill: var(--indigo-800);
   stroke: var(--white);
   stroke-width: 1.2;
 }
 
-.track-badge {
+.track-pin-dot {
   fill: var(--white);
-  stroke: var(--indigo-800);
-  stroke-width: 1.5;
 }
 
-.track-badge-num {
+.track-place-name {
   font-family: var(--sans);
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 700;
   fill: var(--indigo-800);
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5px;
+}
+
+.track-place-note {
+  font-family: var(--sans);
+  font-size: 9px;
+  fill: var(--gray-600);
+  paint-order: stroke;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 2.5px;
 }
 
 .track-key {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px 32px;
-  align-items: start;
-  padding: 18px 28px 22px;
+  padding: 14px 28px 16px;
   border-top: 1px solid var(--gray-200);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--gray-700);
   background: var(--white);
 }
 
-.track-key-title {
+.track-key-item {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 600;
   color: var(--gray-800);
-}
-
-.track-key-sub {
-  grid-column: 1;
-  grid-row: 2;
 }
 
 .track-key-swatch {
@@ -1214,54 +1218,43 @@ body::before {
   border-top: 2px dashed var(--blue-600);
 }
 
+.track-key-pin {
+  width: 12px;
+  height: 16px;
+  flex: none;
+  fill: var(--indigo-800);
+}
+
+.track-key-pin circle {
+  fill: var(--white);
+}
+
 .track-key-list {
-  grid-column: 2;
-  grid-row: 1 / span 2;
+  display: none;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 6px 24px;
-}
-
-.track-key-list li {
-  display: flex;
-  gap: 8px;
-  align-items: baseline;
-}
-
-.track-key-num {
-  flex: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1.5px solid var(--indigo-800);
-  color: var(--indigo-800);
-  font-size: 0.72rem;
-  font-weight: 700;
 }
 
 @media (max-width: 700px) {
   .track-key {
-    grid-template-columns: 1fr;
+    display: block;
     padding: 16px 0 0;
     margin-top: 12px;
     background: transparent;
   }
-  .track-key-title:first-child {
+  .track-key-item:first-child {
     display: none;
   }
-  .track-key-sub,
   .track-key-list {
-    grid-column: 1;
-    grid-row: auto;
+    display: grid;
+    gap: 8px;
+    margin-top: 10px;
   }
-  .track-key-list {
-    grid-template-columns: 1fr;
+  .track-key-list li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
   }
 }
 

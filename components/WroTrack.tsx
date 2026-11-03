@@ -15,19 +15,22 @@ const START = { x: 656, y: 355, name: "Yangon" };
 // Same order as wroFinals: 2018 Chiang Mai, 2019 Budapest, 2024 Izmir, 2025 Singapore.
 const STOPS = [
   { x: 668, y: 346, label: { x: 676, y: 300, anchor: "start" as const } },
-  { x: 324, y: 196, label: { x: 336, y: 168, anchor: "middle" as const } },
+  { x: 324, y: 196, label: { x: 334, y: 166, anchor: "start" as const } },
   { x: 359, y: 249, label: { x: 346, y: 278, anchor: "end" as const } },
   { x: 689, y: 423, label: { x: 674, y: 438, anchor: "end" as const } },
 ];
 
 // Other trips, same order as otherPlaces: Jakarta, Bangkok, Vienna, Hanoi.
-// Each has its true position and a numbered badge set off to one side.
+// Each has a map pin at its true position and a label set off to one side.
 const PLACES = [
-  { x: 702, y: 455, bx: 734, by: 462 },
-  { x: 674, y: 369, bx: 712, by: 384 },
-  { x: 312, y: 191, bx: 284, by: 216 },
-  { x: 697, y: 336, bx: 744, by: 344 },
+  { x: 702, y: 455, lx: 716, ly: 463, anchor: "start" as const },
+  { x: 674, y: 369, lx: 712, ly: 383, anchor: "start" as const },
+  { x: 312, y: 191, lx: 300, ly: 222, anchor: "end" as const },
+  { x: 697, y: 336, lx: 722, ly: 327, anchor: "start" as const },
 ];
+
+// Teardrop map pin with its tip at (0, 0).
+const PIN = "M0 0C-1-4-6-6.5-6-11a6 6 0 1 1 12 0c0 4.5-5 7-6 11z";
 
 const TRACK =
   "M656 355 Q660 340 668 346 " +
@@ -114,16 +117,25 @@ export default function WroTrack() {
         })}
 
         {/* other trips */}
-        {PLACES.map((p, i) => (
-          <g key={otherPlaces[i].place} className="track-place">
-            <line x1={p.x} y1={p.y} x2={p.bx} y2={p.by} className="track-leader" />
-            <circle cx={p.x} cy={p.y} r="3.2" className="track-place-dot" />
-            <circle cx={p.bx} cy={p.by} r="8" className="track-badge" />
-            <text x={p.bx} y={p.by + 3.3} textAnchor="middle" className="track-badge-num">
-              {otherPlaces[i].n}
-            </text>
-          </g>
-        ))}
+        {PLACES.map((p, i) => {
+          const o = otherPlaces[i];
+          const lineX = p.anchor === "start" ? p.lx - 4 : p.lx + 4;
+          return (
+            <g key={o.place} className="track-place">
+              <line x1={p.x} y1={p.y - 6} x2={lineX} y2={p.ly - 4} className="track-leader" />
+              <g transform={`translate(${p.x} ${p.y})`}>
+                <path d={PIN} className="track-pin" />
+                <circle cx="0" cy="-11" r="2.3" className="track-pin-dot" />
+              </g>
+              <text x={p.lx} y={p.ly} textAnchor={p.anchor} className="track-place-name">
+                {o.place}
+              </text>
+              <text x={p.lx} y={p.ly + 12} textAnchor={p.anchor} className="track-place-note">
+                {o.note ? `${o.year}, ${o.note}` : o.year}
+              </text>
+            </g>
+          );
+        })}
 
         {/* the WRO robot, drawn facing +x so rotate="auto" follows the route */}
         <g className="track-robot" aria-hidden="true">
@@ -160,24 +172,31 @@ export default function WroTrack() {
       </ol>
 
       <div className="track-key">
-        <p className="track-key-title">
+        <p className="track-key-item">
           <span className="track-key-swatch" aria-hidden="true" />
           WRO International Finals, the robot&apos;s route
         </p>
-        <p className="track-key-title track-key-sub">Other trips</p>
-        <ol className="track-key-list">
+        <p className="track-key-item">
+          <svg className="track-key-pin" viewBox="-7 -18 14 19" aria-hidden="true">
+            <path d={PIN} />
+            <circle cx="0" cy="-11" r="2.3" />
+          </svg>
+          Other trips
+        </p>
+        <ul className="track-key-list">
           {otherPlaces.map((o) => (
             <li key={o.place}>
-              <span className="track-key-num" aria-hidden="true">
-                {o.n}
-              </span>
+              <svg className="track-key-pin" viewBox="-7 -18 14 19" aria-hidden="true">
+                <path d={PIN} />
+                <circle cx="0" cy="-11" r="2.3" />
+              </svg>
               <span>
                 <strong>{o.place}</strong>, {o.year}
                 {o.note ? `: ${o.note}` : ""}
               </span>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </div>
   );
