@@ -27,6 +27,8 @@ const securityHeaders = [
       "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), browsing-topics=()",
   },
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+  // Vercel sends "*" by default; limit cross-origin reads to this site.
+  { key: "Access-Control-Allow-Origin", value: "https://myominthu.com" },
 ];
 
 /** @type {import('next').NextConfig} */
