@@ -5,8 +5,8 @@ import { wroFinals, wroLabel } from "@/lib/content";
 
 // WRO finals on a real map (Mercator, Natural Earth 1:110m land, public/images/wro-map.svg).
 // City positions are projected into the map's 1000 x 520 frame; the view crops to the region.
-// Airline-style route map: dashed flight arcs link the finals in order, and a small plane
-// flies the route once when the map scrolls into view.
+// Route map: dashed arcs link the finals in order, and a small WRO robot
+// drives the route once when the map scrolls into view.
 
 const VIEW = "140 150 760 370";
 
@@ -102,13 +102,15 @@ export default function WroTrack() {
           );
         })}
 
-        {/* the plane, turned to face +x so rotate="auto" follows the route */}
+        {/* the WRO robot, drawn facing +x so rotate="auto" follows the route */}
         <g className="track-robot" aria-hidden="true">
-          <g transform="rotate(45) scale(0.95) translate(-12 -12)">
-            <path
-              className="track-plane"
-              d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"
-            />
+          <g transform="scale(0.62)">
+            <rect x="-15" y="-16" width="8" height="32" rx="2" className="robot-wheel" />
+            <rect x="-12" y="-12" width="28" height="24" rx="5" className="robot-body" />
+            <rect x="-12" y="-21" width="16" height="6" rx="2" className="robot-wheel" />
+            <rect x="-12" y="15" width="16" height="6" rx="2" className="robot-wheel" />
+            <rect x="2" y="-7" width="9" height="14" rx="2" className="robot-panel" />
+            <circle cx="12.5" cy="0" r="3" className="robot-eye" />
           </g>
           <animateMotion
             ref={motionRef}
