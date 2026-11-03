@@ -175,6 +175,130 @@ a {
   outline-color: var(--white);
 }
 
+/* ---------- Header ---------- */
+
+html {
+  scroll-padding-top: 72px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 60;
+  background: var(--blue-900);
+}
+
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: linear-gradient(to right, rgba(30, 58, 138, 0.96), rgba(55, 48, 163, 0.96));
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 18px -10px rgba(0, 0, 0, 0.4);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 60px;
+}
+
+.brand {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-at {
+  color: var(--blue-100);
+  font-weight: 500;
+}
+
+.nav-desktop ul,
+.nav-mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-desktop ul {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-desktop a,
+.nav-mobile a {
+  display: block;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.nav-desktop a:hover,
+.nav-mobile a:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-header :focus-visible {
+  outline-color: var(--white);
+}
+
+.nav-mobile {
+  display: none;
+  position: relative;
+}
+
+.nav-mobile summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  color: var(--white);
+}
+
+.nav-mobile summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-mobile[open] summary {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.nav-mobile nav {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  min-width: 200px;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--blue-900);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1000px) {
+  .nav-desktop {
+    display: none;
+  }
+  .nav-mobile {
+    display: block;
+  }
+}
+
 /* ---------- Hero ---------- */
 
 .hero {

@@ -24,6 +24,7 @@ import WroTrack from "@/components/WroTrack";
 import WroGallery from "@/components/WroGallery";
 import Briefing from "@/components/Briefing";
 import HeroArt from "@/components/HeroArt";
+import MobileNav from "@/components/MobileNav";
 import {
   person,
   facts,
@@ -73,6 +74,17 @@ const eduIcon: Record<string, typeof ShieldCheck> = {
   teaching: BookOpen,
 };
 
+const nav = [
+  { href: "#roles", label: "About" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#robotics", label: "WRO" },
+  { href: "#journey", label: "Journey" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#services", label: "Services" },
+  { href: "#education", label: "Education" },
+  { href: "#contact", label: "Contact" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -94,6 +106,24 @@ export default async function Home() {
       <a className="skip" href="#main">
         Skip to content
       </a>
+
+      <header className="site-header">
+        <div className="container header-inner">
+          <a href="#top" className="brand">
+            Myo Min Thu <span className="brand-at">@ DJ</span>
+          </a>
+          <nav aria-label="Sections" className="nav-desktop">
+            <ul>
+              {nav.map((n) => (
+                <li key={n.href}>
+                  <a href={n.href}>{n.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <MobileNav items={nav} />
+        </div>
+      </header>
 
       <main id="main">
         {/* Hero */}
@@ -117,7 +147,7 @@ export default async function Home() {
             <div className="hero-photo">
               <Image
                 src={portrait}
-                alt="Myo Min Thu standing in a suit with arms crossed in a hotel lobby, full-length black and white photo"
+                alt="Myo Min Thu standing in a grey suit with arms crossed in a hotel lobby"
                 priority
                 placeholder="blur"
                 sizes="(max-width: 860px) 280px, 360px"
