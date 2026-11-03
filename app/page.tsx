@@ -12,7 +12,7 @@ import {
   services,
   education,
 } from "@/lib/content";
-import portrait from "@/public/images/myo-min-thu.webp";
+import portrait from "@/public/images/myo-min-thu-wide.webp";
 
 const nav = [
   { href: "#experience", label: "Experience" },
@@ -47,7 +47,7 @@ export default async function Home() {
       <header className="site-header">
         <div className="wrap header-inner">
           <a href="#top" className="brand">
-            Myo Min Thu
+            Myo Min Thu <span className="brand-at">@ DJ</span>
           </a>
           <nav aria-label="Sections">
             <ul className="nav-list">
@@ -66,21 +66,15 @@ export default async function Home() {
 
       <main id="main">
         {/* Hero */}
-        <div className="hero-band">
-        <section id="top" className="hero wrap">
-          <div className="hero-text">
+        <section id="top" className="hero">
+          <div className="wrap hero-head">
             <h1 className="hero-name">
-              Myo Min Thu
-              <span className="hero-nick">DJ</span>
+              Myo Min Thu <span className="hero-at">@ DJ</span>
             </h1>
             <p className="hero-role">
-              {person.title}
-              <br />
-              <span className="muted">
-                {person.focus}, {person.location}
-              </span>
+              {person.title}, ILBC Holding. {person.focus}, {person.location}.
             </p>
-            <p className="hero-intro">{person.intro}</p>
+            <p className="hero-mission">{person.mission}</p>
             <div className="hero-actions">
               <a className="btn" href={person.linkedin} rel="noopener" target="_blank">
                 Message me on LinkedIn
@@ -91,19 +85,23 @@ export default async function Home() {
             </div>
           </div>
 
-          <figure className="hero-photo">
-            <Image
-              src={portrait}
-              alt="Myo Min Thu standing in a hotel lobby in a grey suit, arms crossed"
-              priority
-              placeholder="blur"
-              sizes="(max-width: 860px) 90vw, 420px"
-            />
-            <figcaption>Bangkok, October 2026</figcaption>
-          </figure>
-          <Terminal />
+          <div className="wrap hero-stage">
+            <figure className="hero-photo">
+              <Image
+                src={portrait}
+                alt="Myo Min Thu in a grey suit, arms crossed, in a hotel lobby in front of a large painting of a lotus pond"
+                priority
+                placeholder="blur"
+                sizes="(max-width: 1180px) 100vw, 1100px"
+              />
+            </figure>
+            <div className="hero-term">
+              <Terminal />
+            </div>
+          </div>
+
+          <p className="wrap hero-intro">{person.intro}</p>
         </section>
-        </div>
 
         <section className="facts-band" aria-label="At a glance">
           <dl className="wrap facts">
@@ -248,7 +246,9 @@ export default async function Home() {
 
       <footer className="site-footer">
         <div className="wrap footer-inner">
-          <p>© {new Date().getFullYear()} Myo Min Thu</p>
+          <p>
+            © {new Date().getFullYear()} Myo Min Thu @ DJ. Built light: no trackers, no ads.
+          </p>
           <a href="#top">Back to top</a>
         </div>
       </footer>

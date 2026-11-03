@@ -1,38 +1,38 @@
 :root {
-  /* white page, light violet surfaces, one violet accent, dark terminal */
-  --ink: #1f1b2d;
-  --text-2: #3d3850;
-  --steel: #625d73;
+  /* Clean white page, forest-green accent, sage tints. Nature, quietly. */
+  --ink: #142019;
+  --text-2: #3a4a40;
+  --steel: #5f6e64;
   --paper: #ffffff;
   --white: #ffffff;
-  --tint: #f7f5ff;
-  --accent: #6340d8;
-  --accent-deep: #4a2bb5;
-  --accent-soft: #ece7fe;
-  --rule: #e4e0f0;
-  --graphite: #221d33;
+  --tint: #f4f7f2;
+  --accent: #1f6b45;
+  --accent-deep: #15523a;
+  --accent-soft: #e3eee5;
+  --rule: #e1e8e0;
+  --graphite: #12201a;
   --lotus: #c95a7c;
   --zone-blue: #2f6fb3;
   --zone-yellow: #e2b43a;
   --zone-green: #2a8a5f;
 
-  --term-bg: #1b1730;
-  --term-fg: #e9e4ff;
-  --term-dim: #9c94bf;
-  --term-ok: #7ee2b8;
-  --term-err: #ff9aa8;
+  --term-bg: #0f1d17;
+  --term-fg: #e6f2ea;
+  --term-dim: #8fa79a;
+  --term-ok: #8fe3b0;
+  --term-err: #ffb0b8;
 
-  --display: "Bricolage Grotesque Variable", "Segoe UI", sans-serif;
-  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Hanken Grotesk Variable", "Segoe UI", system-ui, sans-serif;
+  --body: "Hanken Grotesk Variable", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
-  /* type scale, ratio ~1.25 */
+  /* type scale */
   --t-sm: 0.875rem;
   --t-base: 1.0625rem;
   --t-md: 1.25rem;
   --t-lg: 1.625rem;
-  --t-xl: clamp(1.9rem, 3.4vw, 2.6rem);
-  --t-hero: clamp(3.2rem, 9vw, 7.25rem);
+  --t-xl: clamp(2rem, 4vw, 3.1rem);
+  --t-hero: clamp(3rem, 8.4vw, 7rem);
 
   --gutter: clamp(16px, 4vw, 40px);
   --max: 1180px;
@@ -76,10 +76,11 @@ h1,
 h2,
 h3 {
   font-family: var(--display);
-  line-height: 1.1;
+  line-height: 1.08;
   margin: 0;
-  font-weight: 650;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 p {
@@ -132,7 +133,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
 }
@@ -186,7 +187,7 @@ a:hover {
   justify-content: center;
   min-height: 46px;
   padding: 0 22px;
-  border-radius: 6px;
+  border-radius: 999px;
   background: var(--accent);
   color: var(--white);
   font-weight: 600;
@@ -224,127 +225,114 @@ a:hover {
 }
 
 /* ---------- Hero ---------- */
+/* One statement, then the photo as a wide stage with the terminal resting on it. */
 
-.hero-band {
-  background-color: var(--paper);
-  background-image: radial-gradient(rgba(99, 64, 216, 0.16) 1px, transparent 1.2px);
-  background-size: 22px 22px;
-  background-position: -11px -11px;
+.brand-at {
+  color: var(--accent);
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  grid-template-areas:
-    "text photo"
-    "term photo";
-  column-gap: clamp(28px, 5vw, 72px);
-  row-gap: 36px;
-  padding-top: clamp(40px, 7vw, 88px);
-  padding-bottom: clamp(40px, 6vw, 72px);
+  padding-top: clamp(56px, 9vw, 120px);
+  padding-bottom: clamp(48px, 7vw, 96px);
 }
 
-.hero-text {
-  grid-area: text;
-  min-width: 0;
+.hero-head {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-name {
   font-size: var(--t-hero);
-  font-weight: 760;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
-  font-variation-settings: "wdth" 85;
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
 }
 
-.hero-nick {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 0.25em;
-  margin-top: 0.12em;
-  font-family: var(--mono);
-  font-size: 0.2em;
-  letter-spacing: 0;
-  font-weight: 500;
-  padding: 0.2em 0.5em;
+.hero-at {
   color: var(--accent);
-  background: var(--accent-soft);
-  border-radius: 4px;
-  line-height: 1.2;
+  font-weight: 400;
 }
 
 .hero-role {
-  margin-top: 28px;
+  margin-top: 22px;
+  font-size: var(--t-md);
+  color: var(--steel);
+  max-width: 52ch;
+}
+
+.hero-mission {
+  margin-top: 30px;
   font-family: var(--display);
-  font-size: var(--t-lg);
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
   font-weight: 600;
   line-height: 1.25;
-}
-
-.hero-role .muted {
-  font-weight: 450;
-  font-size: var(--t-md);
-}
-
-.hero-intro {
-  margin-top: 22px;
-  max-width: 58ch;
-  font-size: 1.125rem;
-  color: var(--text-2);
+  letter-spacing: -0.02em;
+  max-width: 30ch;
+  text-wrap: balance;
 }
 
 .hero-actions {
-  margin-top: 30px;
+  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 18px;
+  justify-content: center;
+  gap: 12px 16px;
+}
+
+.hero-stage {
+  margin-top: clamp(48px, 7vw, 80px);
+  position: relative;
 }
 
 .hero-photo {
-  grid-area: photo;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
 }
 
 .hero-photo img {
   width: 100%;
-  flex: 1 1 auto;
-  min-height: 420px;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  object-position: 50% 30%;
-  border-radius: 8px;
+  border-radius: 24px;
 }
 
-.hero-photo figcaption {
-  margin-top: 10px;
-  font-size: var(--t-sm);
-  color: var(--steel);
+.hero-term {
+  position: absolute;
+  right: calc(var(--gutter) + 24px);
+  bottom: -56px;
+  width: min(392px, 37%);
 }
 
-.hero .term {
-  grid-area: term;
+.hero-intro {
+  margin-top: 88px;
+  max-width: 64ch;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--text-2);
+  text-align: center;
+}
+
+.hero-intro.wrap {
+  max-width: calc(64ch + 2 * var(--gutter));
 }
 
 @media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "photo"
-      "text"
-      "term";
-  }
   .hero-photo img {
-    min-height: 0;
-    height: auto;
     aspect-ratio: 4 / 3;
-    object-position: 50% 22%;
+    object-position: 46% 50%;
+    border-radius: 16px;
   }
-  .hero-photo figcaption {
-    display: none;
+  .hero-term {
+    position: static;
+    width: auto;
+    margin-top: 16px;
+  }
+  .hero-intro {
+    margin-top: 40px;
+    text-align: left;
+    font-size: 1.1rem;
   }
 }
 
@@ -357,7 +345,7 @@ a:hover {
   font-family: var(--mono);
   font-size: 0.875rem;
   line-height: 1.6;
-  box-shadow: 0 18px 40px -18px rgba(74, 43, 181, 0.55);
+  box-shadow: 0 24px 50px -20px rgba(15, 29, 23, 0.55);
   min-width: 0;
   overflow: hidden;
 }
@@ -418,7 +406,7 @@ a:hover {
 }
 
 .term-prompt {
-  color: #b9a6ff;
+  color: #b7e4c7;
 }
 
 .term.is-typing .term-line.term-cmd:last-child::after {
@@ -480,8 +468,8 @@ a:hover {
   font: inherit;
   font-size: 0.8rem;
   color: var(--term-fg);
-  background: rgba(185, 166, 255, 0.14);
-  border: 1px solid rgba(185, 166, 255, 0.3);
+  background: rgba(183, 228, 199, 0.12);
+  border: 1px solid rgba(183, 228, 199, 0.28);
   border-radius: 999px;
   padding: 4px 12px;
   min-height: 32px;
@@ -489,7 +477,7 @@ a:hover {
 }
 
 .term-shortcuts button:hover {
-  background: rgba(185, 166, 255, 0.28);
+  background: rgba(183, 228, 199, 0.24);
 }
 
 .term :focus-visible {
@@ -511,15 +499,7 @@ a:hover {
   white-space: nowrap;
 }
 
-/* Section titles read like code comments */
-.section-title::before {
-  content: "// ";
-  font-family: var(--mono);
-  font-weight: 500;
-  font-size: 0.6em;
-  color: var(--accent);
-  vertical-align: 0.25em;
-}
+
 
 /* ---------- Facts ---------- */
 
@@ -537,7 +517,7 @@ a:hover {
 
 .fact {
   padding: 4px 20px;
-  border-left: 1px solid rgba(99, 64, 216, 0.22);
+  border-left: 1px solid rgba(31, 107, 69, 0.2);
 }
 
 .fact:first-child {
@@ -1064,7 +1044,7 @@ a:hover {
   margin-top: 16px;
   font-size: 1.15rem;
   max-width: 54ch;
-  color: #ece6ff;
+  color: #e3f1e8;
 }
 
 .contact-list {
@@ -1077,7 +1057,7 @@ a:hover {
 
 .contact-list dt {
   font-size: var(--t-sm);
-  color: #d4c9ff;
+  color: #bfe0cb;
 }
 
 .contact-list dd {
@@ -1127,14 +1107,14 @@ a:hover {
 
 .contact-handle {
   font-family: var(--mono);
-  color: #ece6ff;
+  color: #e3f1e8;
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
   background: var(--graphite);
-  color: #bdb5d9;
+  color: #a9bcb0;
   font-size: var(--t-sm);
 }
 

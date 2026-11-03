@@ -3,6 +3,9 @@
 export const person = {
   name: "Myo Min Thu",
   nickname: "DJ",
+  displayName: "Myo Min Thu @ DJ",
+  mission:
+    "Technology that keeps schools safe, opens doors for young engineers, and respects the planet we share.",
   title: "IT Director, Cyber Security",
   focus: "EdTech and robotics",
   location: "Yangon, Myanmar",
@@ -273,7 +276,7 @@ export const education: EduGroup[] = [
 
 // Typed out on page load: [command, output]
 export const terminalIntro: [string, string][] = [
-  ["whoami", "Myo Min Thu (DJ), Yangon, Myanmar"],
+  ["whoami", "Myo Min Thu @ DJ, Yangon, Myanmar"],
   ["cat role.txt", "IT Director, Cyber Security\nILBC Holding: Myanmar | Thailand | Singapore"],
   ["vapt --scope schools", "assess > fix > write it into IT policy"],
   ["wro --finals", "2018  2019  2024  2025   4 world finals"],
@@ -294,7 +297,7 @@ export const terminalCommands: Record<string, string> = {
     "cd <name>  jump to a section",
     "clear      clear the screen",
   ].join("\n"),
-  whoami: "Myo Min Thu (DJ). 19 years in IT and cybersecurity. Started as a programmer in 2007.",
+  whoami: "Myo Min Thu @ DJ. 19 years in IT and cybersecurity. Started as a programmer in 2007.",
   role: roles.map((r) => `- ${r.title}, ${r.org}`).join("\n"),
   skills: skills.map((s) => `${s.group}: ${s.items}`).join("\n\n"),
   wro: wroFinals.map((f) => wroLabel(f)).join("\n"),
