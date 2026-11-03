@@ -16,15 +16,6 @@ export default function Briefing() {
       <div className="brief-bar">
         <span className="brief-led" aria-hidden="true" />
         <span className="brief-title">MISSION BRIEFING: MYO MIN THU @ DJ</span>
-        <button type="button" className="brief-sound" aria-pressed="true">
-          <span className="brief-wave" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-          </span>
-          <span className="brief-sound-label">Replay with sound</span>
-        </button>
       </div>
       <ol className="brief-screen">
         {briefing.map((b) => (
