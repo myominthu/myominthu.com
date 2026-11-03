@@ -12,10 +12,10 @@ export default function Briefing() {
   }, []);
 
   return (
-    <div className="brief" ref={ref} role="region" aria-label="Mission briefing: current positions">
+    <div className="brief" ref={ref} role="region" aria-label="Mission briefing: who I am, what I do, how I can help">
       <div className="brief-bar">
         <span className="brief-led" aria-hidden="true" />
-        <span className="brief-title">MISSION BRIEFING: ILBC HOLDING</span>
+        <span className="brief-title">MISSION BRIEFING: MYO MIN THU @ DJ</span>
         <button type="button" className="brief-sound" aria-pressed="true">
           <span className="brief-wave" aria-hidden="true">
             <i />

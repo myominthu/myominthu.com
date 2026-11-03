@@ -418,6 +418,13 @@ a {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+/* a lone last card in a 3-column row sits in the middle */
+@media (min-width: 901px) {
+  .cards-3 > :last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
 @media (max-width: 1100px) {
   .cards-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -583,7 +590,8 @@ a {
 .panel {
   background: var(--white);
   border-radius: 8px;
-  padding: 24px 32px 32px;
+  padding: 0;
+  overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -593,6 +601,7 @@ a {
 
 @media (max-width: 700px) {
   .panel {
+    padding: 20px 24px;
     background: var(--white) url("/images/world-map.svg") 62% 40% / auto 150% no-repeat;
   }
 }
@@ -1023,19 +1032,29 @@ a {
   overflow: visible;
 }
 
+.track-ocean {
+  fill: #f5f8ff;
+}
+
+.track-glow {
+  fill: none;
+  stroke: rgba(37, 99, 235, 0.12);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
 .track-line {
   fill: none;
-  stroke: var(--ink);
-  stroke-width: 6;
+  stroke: var(--blue-600);
+  stroke-width: 2;
   stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-dasharray: 6 5;
 }
 
 .track-start {
-  fill: none;
-  stroke: var(--steel);
-  stroke-width: 2;
-  stroke-dasharray: 3 2.5;
+  fill: var(--white);
+  stroke: var(--blue-900);
+  stroke-width: 2.5;
 }
 
 .track-zone {
@@ -1043,10 +1062,40 @@ a {
   stroke-width: 2.5;
 }
 
+.track-pulse {
+  opacity: 0.25;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: track-pulse 2.4s ease-out infinite;
+}
+
+@keyframes track-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track-pulse {
+    animation: none;
+  }
+}
+
 .track-zone-0 { fill: var(--zone-blue); }
 .track-zone-1 { fill: var(--lotus); }
 .track-zone-2 { fill: var(--zone-yellow); }
 .track-zone-3 { fill: var(--zone-green); }
+
+.track-plane {
+  fill: var(--blue-900);
+  stroke: var(--white);
+  stroke-width: 1;
+}
 
 .track-year {
   font-family: var(--display);
@@ -1067,9 +1116,6 @@ a {
   stroke-width: 2.5px;
 }
 
-.robot-body { fill: var(--accent); stroke: var(--white); stroke-width: 2; }
-.robot-wheel { fill: var(--ink); }
-.robot-eye { fill: #ff5a4f; }
 
 .track-robot {
   opacity: 0;

@@ -36,7 +36,16 @@ export const roles: Role[] = [
     years: "2026 to present",
     points: [
       "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
-      "Designed the digital architecture of Singapore Global International School (SGIS), connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+    ],
+  },
+  {
+    icon: "school",
+    title: "IT Director",
+    org: "Singapore Global International School (SGIS), Thailand",
+    years: "2026 to present",
+    points: [
+      "Lead IT and cybersecurity for SGIS Bangkok.",
+      "Designed the school's digital architecture, connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
     ],
   },
   {
@@ -330,13 +339,20 @@ export const education: EduGroup[] = [
   },
 ];
 
-// ---------- Mission briefing: current position titles ----------
+// ---------- Mission briefing: who I am, what I do, how I can help ----------
 // Typed out on screen like a mission control console, with typing beeps.
 export const briefing: { label: string; text: string }[] = [
-  { label: "POSITION", text: "IT Director and Head of Cyber Security Team, ILBC International School" },
-  { label: "POSITION", text: "Technology Manager, Saungpokki Online Learning Platform" },
-  { label: "POSITION", text: "National Coach, Myanmar World Robot Olympiad (WRO) Team" },
-  { label: "POSITION", text: "STEAM Coordinator, ILBC" },
-  { label: "POSITION", text: "Founder, ACCTC Myanmar" },
-  { label: "STATUS", text: "All systems go." },
+  {
+    label: "WHO AM I",
+    text: "Myo Min Thu @ DJ. IT Director and cybersecurity leader with 19 years in IT, based in Yangon, Myanmar.",
+  },
+  {
+    label: "WHAT I DO",
+    text: "Lead IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore, including IT Director at SGIS, Thailand. Build EdTech platforms. Coach Myanmar's WRO robotics team.",
+  },
+  {
+    label: "HOW I HELP",
+    text: "Security assessments (VAPT), cloud and IT infrastructure, school and EdTech systems, software development, and cyber awareness training.",
+  },
+  { label: "STATUS", text: "Ready to assist. Message me on LinkedIn." },
 ];
