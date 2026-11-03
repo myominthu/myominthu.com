@@ -5,7 +5,7 @@ export const person = {
   nickname: "DJ",
   displayName: "Myo Min Thu @ DJ",
   tagline:
-    "IT Director, Cyber Security | Technology Leader | EdTech Innovator | Full-Stack Developer | Cloud & DevOps Expert | WRO Coach",
+    "Director of Information Technology & Cyber Security | Technology Leader | EdTech Innovator | Full-Stack Developer | Cloud & DevOps Expert | WRO Coach",
   intro:
     "An IT professional with 19 years of experience in IT management, cybersecurity, cloud computing, software development, digital transformation, and STEM education. Today I lead IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore.",
   location: "Yangon, Myanmar",
@@ -31,8 +31,8 @@ export type Role = {
 export const roles: Role[] = [
   {
     icon: "shield",
-    title: "IT Director in charge of Cyber Security and Head of Cyber Security Team",
-    org: "ILBC Holding Company Limited and ILBC International School, Myanmar",
+    title: "Director of Information Technology & Cyber Security",
+    org: "ILBC Holding Company Ltd.",
     years: "2008 to present (ILBC Holding since 2026)",
     points: [
       "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
@@ -334,7 +334,7 @@ export const education: EduGroup[] = [
 export const briefing: { label: string; text: string }[] = [
   {
     label: "WHO AM I",
-    text: "Myo Min Thu @ DJ. IT Director and cybersecurity leader with 19 years in IT, based in Yangon, Myanmar.",
+    text: "Myo Min Thu @ DJ. Director of Information Technology & Cyber Security, ILBC Holding Company Ltd. 19 years in IT, based in Yangon, Myanmar.",
   },
   {
     label: "WHAT I DO",

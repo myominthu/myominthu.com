@@ -78,10 +78,10 @@ const jsonLd = {
   "@type": "Person",
   name: person.name,
   alternateName: person.displayName,
-  jobTitle: "IT Director in charge of Cyber Security",
+  jobTitle: "Director of Information Technology & Cyber Security",
   url: person.website,
   sameAs: [person.linkedin],
-  worksFor: { "@type": "Organization", name: "ILBC Holding Company Limited" },
+  worksFor: { "@type": "Organization", name: "ILBC Holding Company Ltd." },
   address: { "@type": "PostalAddress", addressLocality: "Yangon", addressCountry: "MM" },
 };
 
