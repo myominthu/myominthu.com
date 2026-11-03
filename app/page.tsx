@@ -34,7 +34,7 @@ import {
   education,
   type Role,
 } from "@/lib/content";
-import portrait from "@/public/images/myo-min-thu-round.webp";
+import portrait from "@/public/images/myo-min-thu-full.webp";
 
 function LinkedinIcon({ size = 18 }: { size?: number }) {
   return (
@@ -119,10 +119,10 @@ export default async function Home() {
             <div className="hero-photo">
               <Image
                 src={portrait}
-                alt="Myo Min Thu in a suit with arms crossed, black and white portrait"
+                alt="Myo Min Thu standing in a suit with arms crossed in a hotel lobby, full-length black and white photo"
                 priority
                 placeholder="blur"
-                sizes="(max-width: 860px) 260px, 340px"
+                sizes="(max-width: 860px) 280px, 360px"
               />
             </div>
           </div>
