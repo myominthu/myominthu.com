@@ -169,6 +169,14 @@ export const wroFinals = [
   { year: "2025", place: "Singapore" },
 ];
 
+// Other trips shown on the same map (numbered markers with a key).
+export const otherPlaces: { n: number; place: string; year: string; note: string }[] = [
+  { n: 1, place: "Jakarta, Indonesia", year: "2017", note: "YSEALI TechCamp ASEAN" },
+  { n: 2, place: "Bangkok, Thailand", year: "2018", note: "YSEALI TechCamp Reconnect" },
+  { n: 3, place: "Vienna, Austria", year: "2019", note: "" },
+  { n: 4, place: "Hanoi, Vietnam", year: "2019", note: "Holiday" },
+];
+
 export const wroLabel = (f: { year: string; place: string }) =>
   `WRO ${f.year} - ${f.place}`;
 

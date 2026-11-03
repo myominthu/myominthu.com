@@ -599,6 +599,10 @@ a {
   margin-top: 0;
 }
 
+.panel .track-svg {
+  overflow: hidden;
+}
+
 @media (max-width: 700px) {
   .panel {
     padding: 20px 24px;
@@ -1091,6 +1095,113 @@ a {
 .track-zone-2 { fill: var(--zone-yellow); }
 .track-zone-3 { fill: var(--zone-green); }
 
+.track-leader {
+  stroke: var(--indigo-800);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.track-place-dot {
+  fill: var(--indigo-800);
+  stroke: var(--white);
+  stroke-width: 1.2;
+}
+
+.track-badge {
+  fill: var(--white);
+  stroke: var(--indigo-800);
+  stroke-width: 1.5;
+}
+
+.track-badge-num {
+  font-family: var(--sans);
+  font-size: 9.5px;
+  font-weight: 700;
+  fill: var(--indigo-800);
+}
+
+.track-key {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 32px;
+  align-items: start;
+  padding: 18px 28px 22px;
+  border-top: 1px solid var(--gray-200);
+  font-size: 0.92rem;
+  color: var(--gray-700);
+  background: var(--white);
+}
+
+.track-key-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.track-key-sub {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.track-key-swatch {
+  width: 26px;
+  height: 0;
+  border-top: 2px dashed var(--blue-600);
+}
+
+.track-key-list {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 24px;
+}
+
+.track-key-list li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.track-key-num {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--indigo-800);
+  color: var(--indigo-800);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .track-key {
+    grid-template-columns: 1fr;
+    padding: 16px 0 0;
+    margin-top: 12px;
+    background: transparent;
+  }
+  .track-key-title:first-child {
+    display: none;
+  }
+  .track-key-sub,
+  .track-key-list {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .track-key-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .robot-body {
   fill: var(--blue-600);
   stroke: var(--white);
@@ -1140,7 +1251,7 @@ a {
 
 .track[data-state="parked"] .track-robot {
   opacity: 1;
-  transform: translate(707px, 463px);
+  transform: translate(689px, 423px);
 }
 
 /* the list is the accessible text version, and the visual on small screens */

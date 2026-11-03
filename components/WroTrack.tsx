@@ -1,30 +1,39 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { wroFinals, wroLabel } from "@/lib/content";
+import { wroFinals, wroLabel, otherPlaces } from "@/lib/content";
 
 // WRO finals on a real map (Mercator, Natural Earth 1:110m land, public/images/wro-map.svg).
 // City positions are projected into the map's 1000 x 520 frame; the view crops to the region.
 // Route map: dashed arcs link the finals in order, and a small WRO robot
 // drives the route once when the map scrolls into view.
 
-const VIEW = "140 150 760 370";
+const VIEW = "180 130 700 350";
 
-const START = { x: 671, y: 389, name: "Yangon" };
+const START = { x: 656, y: 355, name: "Yangon" };
 
 // Same order as wroFinals: 2018 Chiang Mai, 2019 Budapest, 2024 Izmir, 2025 Singapore.
 const STOPS = [
-  { x: 684, y: 379, label: { x: 700, y: 352, anchor: "start" as const } },
-  { x: 307, y: 214, label: { x: 307, y: 186, anchor: "middle" as const } },
-  { x: 345, y: 273, label: { x: 330, y: 304, anchor: "end" as const } },
-  { x: 707, y: 463, label: { x: 707, y: 492, anchor: "middle" as const } },
+  { x: 668, y: 346, label: { x: 676, y: 300, anchor: "start" as const } },
+  { x: 324, y: 196, label: { x: 336, y: 168, anchor: "middle" as const } },
+  { x: 359, y: 249, label: { x: 346, y: 278, anchor: "end" as const } },
+  { x: 689, y: 423, label: { x: 674, y: 438, anchor: "end" as const } },
+];
+
+// Other trips, same order as otherPlaces: Jakarta, Bangkok, Vienna, Hanoi.
+// Each has its true position and a numbered badge set off to one side.
+const PLACES = [
+  { x: 702, y: 455, bx: 734, by: 462 },
+  { x: 674, y: 369, bx: 712, by: 384 },
+  { x: 312, y: 191, bx: 284, by: 216 },
+  { x: 697, y: 336, bx: 744, by: 344 },
 ];
 
 const TRACK =
-  "M671 389 Q678 366 684 379 " +
-  "Q500 160 307 214 " +
-  "Q356 234 345 273 " +
-  "Q570 262 707 463";
+  "M656 355 Q660 340 668 346 " +
+  "Q500 135 324 196 " +
+  "Q370 214 359 249 " +
+  "Q560 236 689 423";
 
 export default function WroTrack() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -61,6 +70,8 @@ export default function WroTrack() {
         <title id="track-title">
           {`Map of the WRO International Finals reached by Myanmar teams from Yangon: ${wroFinals
             .map(wroLabel)
+            .join("; ")}. Other trips: ${otherPlaces
+            .map((o) => `${o.place} ${o.year}${o.note ? ` (${o.note})` : ""}`)
             .join("; ")}.`}
         </title>
 
@@ -69,7 +80,7 @@ export default function WroTrack() {
 
         {/* start */}
         <circle cx={START.x} cy={START.y} r="5" className="track-start" />
-        <text x={START.x - 14} y={START.y + 18} textAnchor="end" className="track-label-small">
+        <text x={START.x - 12} y={START.y + 30} textAnchor="end" className="track-label-small">
           {START.name}
         </text>
 
@@ -101,6 +112,18 @@ export default function WroTrack() {
             </g>
           );
         })}
+
+        {/* other trips */}
+        {PLACES.map((p, i) => (
+          <g key={otherPlaces[i].place} className="track-place">
+            <line x1={p.x} y1={p.y} x2={p.bx} y2={p.by} className="track-leader" />
+            <circle cx={p.x} cy={p.y} r="3.2" className="track-place-dot" />
+            <circle cx={p.bx} cy={p.by} r="8" className="track-badge" />
+            <text x={p.bx} y={p.by + 3.3} textAnchor="middle" className="track-badge-num">
+              {otherPlaces[i].n}
+            </text>
+          </g>
+        ))}
 
         {/* the WRO robot, drawn facing +x so rotate="auto" follows the route */}
         <g className="track-robot" aria-hidden="true">
@@ -135,6 +158,27 @@ export default function WroTrack() {
           </li>
         ))}
       </ol>
+
+      <div className="track-key">
+        <p className="track-key-title">
+          <span className="track-key-swatch" aria-hidden="true" />
+          WRO International Finals, the robot&apos;s route
+        </p>
+        <p className="track-key-title track-key-sub">Other trips</p>
+        <ol className="track-key-list">
+          {otherPlaces.map((o) => (
+            <li key={o.place}>
+              <span className="track-key-num" aria-hidden="true">
+                {o.n}
+              </span>
+              <span>
+                <strong>{o.place}</strong>, {o.year}
+                {o.note ? `: ${o.note}` : ""}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }
