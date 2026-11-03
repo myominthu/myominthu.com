@@ -31,11 +31,14 @@ export type Role = {
 export const roles: Role[] = [
   {
     icon: "shield",
-    title: "IT Director in charge of Cyber Security",
-    org: "ILBC Holding Company Limited",
-    years: "2026 to present",
+    title: "IT Director in charge of Cyber Security and Head of Cyber Security Team",
+    org: "ILBC Holding Company Limited and ILBC International School, Myanmar",
+    years: "2008 to present (ILBC Holding since 2026)",
     points: [
       "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
+      "Designed the digital architecture of Singapore Global International School (SGIS), connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+      "Lead the IT department at the largest international school in Myanmar.",
+      "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests, written into the school's IT policy and SOP.",
     ],
   },
   {
@@ -43,20 +46,7 @@ export const roles: Role[] = [
     title: "IT Director",
     org: "Singapore Global International School (SGIS), Thailand",
     years: "2026 to present",
-    points: [
-      "Lead IT and cybersecurity for SGIS Bangkok.",
-      "Designed the school's digital architecture, connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
-    ],
-  },
-  {
-    icon: "school",
-    title: "IT Director and Head of Cyber Security Team",
-    org: "ILBC International School, Myanmar",
-    years: "2008 to present",
-    points: [
-      "Lead the IT department at the largest international school in Myanmar.",
-      "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests, written into the school's IT policy and SOP.",
-    ],
+    points: ["Lead IT and cybersecurity for SGIS Bangkok."],
   },
   {
     icon: "platform",
