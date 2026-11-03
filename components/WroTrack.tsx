@@ -54,7 +54,9 @@ export default function WroTrack() {
         aria-labelledby="track-title"
       >
         <title id="track-title">
-          Route of Myanmar WRO teams to the International Finals: {wroFinals.map(wroLabel).join("; ")}.
+          {`Route of Myanmar WRO teams to the International Finals: ${wroFinals
+            .map(wroLabel)
+            .join("; ")}.`}
         </title>
 
         {/* start zone */}
