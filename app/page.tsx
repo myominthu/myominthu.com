@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { headers } from "next/headers";
 import WroTrack from "@/components/WroTrack";
 import WroGallery from "@/components/WroGallery";
 import Terminal from "@/components/Terminal";
@@ -33,7 +34,10 @@ const jsonLd = {
   address: { "@type": "PostalAddress", addressLocality: "Yangon", addressCountry: "MM" },
 };
 
-export default function Home() {
+export default async function Home() {
+  // Reading the nonce also makes this page render per request, which the CSP needs.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <>
       <a className="skip" href="#main">
@@ -250,6 +254,7 @@ export default function Home() {
       </footer>
 
       <script
+        nonce={nonce}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

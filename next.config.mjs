@@ -1,23 +1,6 @@
-// Content Security Policy.
-// 'unsafe-inline' for scripts is needed because Next.js inlines its hydration data
-// on static pages; everything else is limited to this site only.
-const csp = [
-  "default-src 'self'",
-  // 'unsafe-eval' only in local development, where Next.js needs it for hot reload
-  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
-  "font-src 'self' data:",
-  "connect-src 'self'",
-  "frame-ancestors 'self'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "object-src 'none'",
-  "upgrade-insecure-requests",
-].join("; ");
+// Content-Security-Policy is set per request in middleware.ts (nonce-based).
 
 const securityHeaders = [
-  { key: "Content-Security-Policy", value: csp },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
