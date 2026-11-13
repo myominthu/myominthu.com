@@ -1403,3 +1403,179 @@ body::before {
   }
 }
 
+
+/* ---------- Cookie consent and privacy page ---------- */
+
+.footer-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: var(--t-sm);
+}
+
+.footer-links a,
+.footer-link-btn {
+  color: #d1d5db;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-link-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer-links a:hover,
+.footer-link-btn:hover {
+  color: var(--white);
+}
+
+.cookie-banner {
+  position: fixed;
+  z-index: 100;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--gray-900);
+  color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.45);
+}
+
+.cookie-text {
+  flex: 1 1 320px;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+}
+
+.cookie-text a {
+  color: var(--blue-100);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  padding: 9px 18px;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+/* Reject and Accept get equal weight, as consent rules expect. */
+.cookie-btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.cookie-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cookie-btn-primary {
+  background: var(--blue-600);
+  color: var(--white);
+}
+
+.cookie-btn-primary:hover {
+  background: var(--blue-700);
+}
+
+.cookie-banner :focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+.legal-header {
+  background: var(--blue-900);
+  padding-block: 18px;
+}
+
+.legal-back {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.legal {
+  padding-block: 48px 72px;
+  line-height: 1.7;
+}
+
+.legal h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-900);
+}
+
+.legal h2 {
+  margin-top: 36px;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-900);
+}
+
+.legal p,
+.legal ul {
+  margin-top: 12px;
+}
+
+.legal ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.legal li + li {
+  margin-top: 8px;
+}
+
+.legal a,
+.legal .footer-link-btn {
+  color: var(--blue-700);
+  text-decoration: underline;
+}
+
+.legal-updated {
+  color: #6b7280;
+  font-size: var(--t-sm);
+}
+
+.legal-table-wrap {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-sm);
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.legal-table th {
+  background: var(--blue-50);
+  color: var(--blue-900);
+}

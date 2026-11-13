@@ -3,6 +3,7 @@ import "@fontsource-variable/inter";
 import "@fontsource/ibm-plex-mono/400.css";
 import "@fontsource/ibm-plex-mono/500.css";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const description =
   "Myo Min Thu @ DJ, Director of Information Technology & Cyber Security at ILBC Holding Company Ltd., leading IT for three international schools in Myanmar, Thailand and Singapore. 19 years in IT, EdTech and robotics.";
@@ -29,7 +30,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

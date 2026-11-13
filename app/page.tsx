@@ -25,6 +25,7 @@ import WroGallery from "@/components/WroGallery";
 import Briefing from "@/components/Briefing";
 import HeroArt from "@/components/HeroArt";
 import MobileNav from "@/components/MobileNav";
+import { CookieSettingsButton } from "@/components/CookieConsent";
 import {
   person,
   facts,
@@ -369,6 +370,10 @@ export default async function Home() {
             © {new Date().getFullYear()} {person.displayName}. All rights reserved.
           </p>
           <p className="footer-tag">Technology Leader | IT Director | EdTech Innovator</p>
+          <p className="footer-links">
+            <a href="/privacy">Privacy</a>
+            <CookieSettingsButton />
+          </p>
         </div>
       </footer>
 

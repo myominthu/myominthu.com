@@ -9,11 +9,12 @@ export function middleware(request: NextRequest) {
 
   const csp = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""}`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    // Google Analytics 4 (loaded only after cookie consent).
+    "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
     "font-src 'self' data:",
-    "connect-src 'self'",
+    "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
     "frame-ancestors 'self'",
     "base-uri 'self'",
     "form-action 'self'",
