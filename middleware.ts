@@ -10,10 +10,11 @@ export function middleware(request: NextRequest) {
   const csp = [
     "default-src 'self'",
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
-    "style-src 'self' 'unsafe-inline'",
+    // Google Tag Manager preview mode needs the Google style/font/image hosts below.
+    "style-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com https://fonts.googleapis.com",
     // Google Analytics 4 (loaded only after cookie consent).
-    "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
-    "font-src 'self' data:",
+    "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://ssl.gstatic.com https://www.gstatic.com",
+    "font-src 'self' data: https://fonts.gstatic.com",
     "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
     "frame-ancestors 'self'",
     "base-uri 'self'",

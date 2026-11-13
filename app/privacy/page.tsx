@@ -42,7 +42,8 @@ export default async function Privacy() {
               <strong>Analytics (only if you accept cookies).</strong> Google Analytics 4 records the
               pages you view, how long you stay, the site that referred you, your approximate
               location (city or country), and your device, browser and screen size. Google
-              Analytics 4 does not log or store full IP addresses.
+              Analytics 4 does not log or store full IP addresses. Google Tag Manager, which
+              loads these tags, is also loaded only after you accept.
             </li>
             <li>
               <strong>Hosting logs.</strong> The site is hosted on Vercel, which keeps short-lived
@@ -108,7 +109,7 @@ export default async function Privacy() {
 
           <h2>4. Who receives it</h2>
           <p>
-            Google (analytics) and Vercel (hosting) act as service providers and may process data
+            Google (Analytics and Tag Manager) and Vercel (hosting) act as service providers and may process data
             outside your country, including in the United States. I do not sell or share your data
             for advertising, and Google signals and ad personalisation are turned off.
           </p>

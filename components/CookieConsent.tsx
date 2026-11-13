@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 // Google Analytics 4 loads only after the visitor accepts cookies.
 // The Measurement ID is public; NEXT_PUBLIC_GA_ID in Vercel can override it.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RJH80B47NX";
+// Google Tag Manager container, also loaded only after consent.
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-WG5JVKVS";
 const STORAGE_KEY = "mmt-cookie-consent";
 const MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // ask again after 12 months
 const OPEN_EVENT = "mmt:open-cookie-settings";
@@ -62,6 +64,17 @@ function loadGA() {
   s.async = true;
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
   document.head.appendChild(s);
+
+  if (GTM_ID) {
+    window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
+    const g = document.createElement("script");
+    g.async = true;
+    g.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+    // Pass the page's CSP nonce on so GTM Custom HTML tags can use it.
+    const nonce = document.querySelector<HTMLScriptElement>("script[nonce]")?.nonce;
+    if (nonce) g.nonce = nonce;
+    document.head.appendChild(g);
+  }
 }
 
 function clearGACookies() {
