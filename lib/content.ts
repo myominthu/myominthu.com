@@ -7,7 +7,7 @@ export const person = {
   tagline:
     "Director of Information Technology & Cyber Security | Technology Leader | EdTech Innovator | Full-Stack Developer | Cloud & DevOps Expert | WRO Coach",
   intro:
-    "An IT professional with 19 years of experience in IT management, cybersecurity, cloud computing, software development, digital transformation, and STEM education. Today I lead IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore.",
+    "An IT professional with 19 years of experience in international schools, covering IT management, cybersecurity, cloud computing, software development, digital transformation, and STEM education. Today I support companies in Myanmar, Thailand and Singapore with IT and cybersecurity.",
   location: "Yangon, Myanmar",
   linkedin: "https://www.linkedin.com/in/myominthu/",
   website: "https://myominthu.com",
@@ -345,11 +345,14 @@ export const briefing: { label: string; text: string }[] = [
   },
   {
     label: "WHAT I DO",
-    text: "Lead IT and cybersecurity for three international schools in Myanmar, Thailand and Singapore, including IT Director at SGIS, Thailand. Build EdTech platforms. Coach Myanmar's WRO robotics team.",
+    text: "19 years of IT experience in international schools. Today I support companies in Myanmar, Thailand and Singapore with IT and cybersecurity, including as IT Director at SGIS, Thailand. Build EdTech platforms. Coach Myanmar's WRO robotics team.",
   },
   {
     label: "HOW I HELP",
     text: "Security assessments (VAPT), cloud and IT infrastructure, school and EdTech systems, software development, and cyber awareness training.",
   },
-  { label: "STATUS", text: "Ready to assist. Message me on LinkedIn." },
+  {
+    label: "STATUS",
+    text: "Open to new connections. Whether you want to swap IT knowledge, make a new friend, or need a consultation, connect with me on LinkedIn.",
+  },
 ];
