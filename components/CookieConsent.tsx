@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 // Google Analytics 4 loads only after the visitor accepts cookies.
-// Set NEXT_PUBLIC_GA_ID (e.g. G-XXXXXXXXXX) in Vercel; without it, no banner and no tracking.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+// The Measurement ID is public; NEXT_PUBLIC_GA_ID in Vercel can override it.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-RJH80B47NX";
 const STORAGE_KEY = "mmt-cookie-consent";
 const MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // ask again after 12 months
 const OPEN_EVENT = "mmt:open-cookie-settings";
