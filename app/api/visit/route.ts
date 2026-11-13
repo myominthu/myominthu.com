@@ -47,7 +47,7 @@ function device(ua: string) {
   return `${type} · ${os} · ${browser}`;
 }
 
-type VpnInfo = { line: string; network: string };
+type VpnInfo = { line: string };
 
 // VPN/proxy lookup via proxycheck.io (v3). PROXYCHECK_API_KEY is optional:
 // 100 checks/day without a key, 1,000/day with a free key.
@@ -65,7 +65,6 @@ async function checkVpn(ip: string): Promise<VpnInfo | null> {
     const r = json[ip] ?? {};
     const d = r.detections ?? {};
     const operator: string = r.operator?.name ?? "";
-    const network: string = r.network?.provider ?? r.network?.organisation ?? r.provider ?? "";
 
     // v3 uses booleans under "detections"; fall back to v2-style fields if present.
     const kinds: string[] = [];
@@ -78,7 +77,7 @@ async function checkVpn(ip: string): Promise<VpnInfo | null> {
     const line = kinds.length
       ? `⚠️ Yes · ${kinds.join(", ")}${operator ? ` (${operator})` : ""}`
       : "✅ No";
-    return { line, network: clean(network, 80) };
+    return { line };
   } catch {
     return null; // timeout or service down: still send the alert
   }
@@ -143,7 +142,6 @@ export async function POST(req: NextRequest) {
     `📍 From: ${city}, ${countryName}`,
     `🔗 Referrer: ${referrer}`,
     `🛡 VPN/Proxy: ${vpn ? vpn.line : "Unknown"}`,
-    ...(vpn?.network ? [`🏢 Network: ${vpn.network}`] : []),
     `💻 Device: ${device(ua)}`,
     `🕒 ${time} (Yangon)`,
   ].join("\n");

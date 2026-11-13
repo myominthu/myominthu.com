@@ -46,12 +46,11 @@ export default async function Privacy() {
               loads these tags, is also loaded only after you accept.
             </li>
             <li>
-              <strong>Visit alerts (only if you accept cookies).</strong> When you open a page, I
-              receive a private Telegram message with the page, your approximate city and country,
-              the referring website, and your device type (for example &quot;Mobile · Android ·
-              Chrome&quot;), and whether you appear to be using a VPN or proxy and which network
-              you are on. To check this, your IP address is looked up with proxycheck.io; the IP
-              itself is not included in the message. Nobody is blocked for using a VPN.
+              <strong>Visit notifications (only if you accept cookies).</strong> When you open a
+              page, I get a short notification with the page, your approximate city and country,
+              the referring site, your device type, and whether the connection looks like a VPN or
+              proxy. Your IP address is checked with proxycheck.io for this but is never shown to
+              me or stored. Using a VPN never blocks access.
             </li>
             <li>
               <strong>Hosting logs.</strong> The site is hosted on Vercel, which keeps short-lived
@@ -118,14 +117,14 @@ export default async function Privacy() {
 
           <h2>4. Who receives it</h2>
           <p>
-            Google (Analytics and Tag Manager), Telegram and proxycheck.io (visit alerts), and Vercel (hosting) act as service providers and may process data
+            Google (Analytics and Tag Manager), Telegram and proxycheck.io (visit notifications), and Vercel (hosting) act as service providers and may process data
             outside your country, including in the United States. I do not sell or share your data
             for advertising, and Google signals and ad personalisation are turned off.
           </p>
 
           <h2>5. How long it is kept</h2>
           <p>
-            Analytics data is kept for up to 14 months, then deleted automatically. Visit alerts
+            Analytics data is kept for up to 14 months, then deleted automatically. Visit notifications
             are kept in my Telegram chat for up to 12 months.
           </p>
 
