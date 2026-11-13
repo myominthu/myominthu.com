@@ -49,7 +49,9 @@ export default async function Privacy() {
               <strong>Visit alerts (only if you accept cookies).</strong> When you open a page, I
               receive a private Telegram message with the page, your approximate city and country,
               the referring website, and your device type (for example &quot;Mobile · Android ·
-              Chrome&quot;). Your IP address is not included.
+              Chrome&quot;), and whether you appear to be using a VPN or proxy and which network
+              you are on. To check this, your IP address is looked up with proxycheck.io; the IP
+              itself is not included in the message. Nobody is blocked for using a VPN.
             </li>
             <li>
               <strong>Hosting logs.</strong> The site is hosted on Vercel, which keeps short-lived
@@ -116,7 +118,7 @@ export default async function Privacy() {
 
           <h2>4. Who receives it</h2>
           <p>
-            Google (Analytics and Tag Manager), Telegram (visit alerts) and Vercel (hosting) act as service providers and may process data
+            Google (Analytics and Tag Manager), Telegram and proxycheck.io (visit alerts), and Vercel (hosting) act as service providers and may process data
             outside your country, including in the United States. I do not sell or share your data
             for advertising, and Google signals and ad personalisation are turned off.
           </p>

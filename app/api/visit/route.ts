@@ -47,6 +47,43 @@ function device(ua: string) {
   return `${type} · ${os} · ${browser}`;
 }
 
+type VpnInfo = { line: string; network: string };
+
+// VPN/proxy lookup via proxycheck.io (v3). PROXYCHECK_API_KEY is optional:
+// 100 checks/day without a key, 1,000/day with a free key.
+async function checkVpn(ip: string): Promise<VpnInfo | null> {
+  if (!ip) return null;
+  const key = process.env.PROXYCHECK_API_KEY;
+  try {
+    const res = await fetch(
+      `https://proxycheck.io/v3/${encodeURIComponent(ip)}${key ? `?key=${encodeURIComponent(key)}` : ""}`,
+      { signal: AbortSignal.timeout(2500), cache: "no-store" },
+    );
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (json?.status !== "ok" && json?.status !== "warning") return null;
+    const r = json[ip] ?? {};
+    const d = r.detections ?? {};
+    const operator: string = r.operator?.name ?? "";
+    const network: string = r.network?.provider ?? r.network?.organisation ?? r.provider ?? "";
+
+    // v3 uses booleans under "detections"; fall back to v2-style fields if present.
+    const kinds: string[] = [];
+    if (d.vpn === true) kinds.push("VPN");
+    if (d.tor === true) kinds.push("Tor");
+    if (d.proxy === true) kinds.push("Proxy");
+    if (d.hosting === true && kinds.length === 0) kinds.push("Hosting/Data centre");
+    if (kinds.length === 0 && r.proxy === "yes") kinds.push(r.type || "Proxy");
+
+    const line = kinds.length
+      ? `⚠️ Yes · ${kinds.join(", ")}${operator ? ` (${operator})` : ""}`
+      : "✅ No";
+    return { line, network: clean(network, 80) };
+  } catch {
+    return null; // timeout or service down: still send the alert
+  }
+}
+
 function clean(v: unknown, max: number) {
   return typeof v === "string" ? v.replace(/[\u0000-\u001f]/g, "").slice(0, max) : "";
 }
@@ -90,13 +127,14 @@ export async function POST(req: NextRequest) {
   }
 
   const city = decodeURIComponent(req.headers.get("x-vercel-ip-city") ?? "") || "Unknown city";
-  const country = req.headers.get("x-vercel-ip-country") ?? "??";
-  let countryName = country;
+  const country = req.headers.get("x-vercel-ip-country") ?? "";
+  let countryName = country || "Unknown country";
   try {
-    countryName = new Intl.DisplayNames(["en"], { type: "region" }).of(country) ?? country;
+    if (country) countryName = new Intl.DisplayNames(["en"], { type: "region" }).of(country) ?? country;
   } catch {
     /* keep the code */
   }
+  const vpn = await checkVpn(ip);
   const time = new Date().toLocaleString("en-GB", { timeZone: "Asia/Yangon", hour12: false });
 
   const text = [
@@ -104,6 +142,8 @@ export async function POST(req: NextRequest) {
     `📄 Page: ${path}`,
     `📍 From: ${city}, ${countryName}`,
     `🔗 Referrer: ${referrer}`,
+    `🛡 VPN/Proxy: ${vpn ? vpn.line : "Unknown"}`,
+    ...(vpn?.network ? [`🏢 Network: ${vpn.network}`] : []),
     `💻 Device: ${device(ua)}`,
     `🕒 ${time} (Yangon)`,
   ].join("\n");
