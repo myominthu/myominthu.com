@@ -6,7 +6,7 @@ import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
 
 const description =
-  "Myo Min Thu @ DJ, Director of Information Technology & Cyber Security at ILBC Holding Company Ltd., 19 years of IT experience in international schools, supporting companies in Myanmar, Thailand and Singapore with IT and cybersecurity. EdTech and robotics.";
+  "Myo Min Thu @ DJ, Director of Information Technology & Cyber Security at ILBC. 19 years of IT experience in international schools, supporting companies in Myanmar, Thailand and Singapore with IT and cybersecurity. EdTech and robotics.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://myominthu.com"),

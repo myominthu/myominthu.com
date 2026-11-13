@@ -31,11 +31,11 @@ export const roles: Role[] = [
   {
     icon: "shield",
     title: "Director of Information Technology & Cyber Security",
-    org: "ILBC Holding Company Ltd.",
-    years: "2008 to present (ILBC Holding since 2026)",
+    org: "ILBC",
+    years: "2008 to present",
     points: [
       "Promoted to manage IT and cybersecurity for three schools across Myanmar, Thailand and Singapore.",
-      "Designed the digital architecture of Singapore Global International School (SGIS), connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+      "Designed the digital architecture of Singapore Global International School (SGIS), integrating its admissions and parent-communication systems. Approved by school management and now in use.",
       "Lead the IT department at the largest international school in Myanmar.",
       "Built an internal cybersecurity team, upgraded firewalls, and introduced vulnerability assessments and penetration tests, written into the school's IT policy and SOP.",
     ],
@@ -93,7 +93,7 @@ export const achievements: { title: string; text: string; chips: string[] }[] = 
   },
   {
     title: "Digital Transformation Leader",
-    text: "Led the move from traditional classrooms to virtual learning during the COVID-19 pandemic, implementing Technology-Integrated Learning (TIL) within two months for over 8,000 students and 2,000 teachers. No successful cyberattacks since.",
+    text: "Led the move from traditional classrooms to virtual learning during the COVID-19 pandemic, implementing Technology-Integrated Learning (TIL) within two months for over 8,000 students and 2,000 teachers. Built with strong security controls from day one.",
     chips: ["Microsoft Education Solutions", "TIL"],
   },
   {
@@ -113,12 +113,12 @@ export const achievements: { title: string; text: string; chips: string[] }[] = 
   },
   {
     title: "Large-Scale IT Management",
-    text: "Oversees more than 32,000 users in Microsoft 365 administration and expanded the TIL system by integrating multiple educational tools with single sign-on.",
+    text: "Oversees cloud collaboration and identity for 32,000+ users, and expanded the TIL system by integrating multiple educational tools.",
     chips: ["MS Teams (LMS)", "SORA e-Library", "Dugga", "Fedena ERP", "CodeMonkey"],
   },
   {
     title: "SGIS Digital Architecture",
-    text: "Designed the digital architecture of Singapore Global International School, connecting parent submissions through the CRM to the admissions platform. Approved by school management and now in use.",
+    text: "Designed the digital architecture of Singapore Global International School, integrating its admissions and parent-communication systems. Approved by school management and now in use.",
     chips: ["CRM", "Admissions", "Integration"],
   },
   {
@@ -341,7 +341,7 @@ export const education: EduGroup[] = [
 export const briefing: { label: string; text: string }[] = [
   {
     label: "WHO AM I",
-    text: "Myo Min Thu @ DJ. Director of Information Technology & Cyber Security, ILBC Holding Company Ltd. 19 years in IT, based in Yangon, Myanmar.",
+    text: "Myo Min Thu @ DJ. Director of Information Technology & Cyber Security, ILBC. 19 years in IT, based in Yangon, Myanmar.",
   },
   {
     label: "WHAT I DO",

@@ -94,7 +94,7 @@ const jsonLd = {
   jobTitle: "Director of Information Technology & Cyber Security",
   url: person.website,
   sameAs: [person.linkedin],
-  worksFor: { "@type": "Organization", name: "ILBC Holding Company Ltd." },
+  worksFor: { "@type": "Organization", name: "ILBC" },
   address: { "@type": "PostalAddress", addressLocality: "Yangon", addressCountry: "MM" },
 };
 
