@@ -77,6 +77,23 @@ function loadGA() {
   }
 }
 
+// Telegram visit alert (see app/api/visit). Once per page per browser session.
+function notifyVisit() {
+  try {
+    const key = `mmt-visit:${location.pathname}`;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1");
+  } catch {
+    /* storage blocked: still send once for this page load */
+  }
+  fetch("/api/visit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path: location.pathname, referrer: document.referrer }),
+    keepalive: true,
+  }).catch(() => {});
+}
+
 function clearGACookies() {
   const host = location.hostname;
   const domains = ["", host, `.${host}`, `.${host.replace(/^www\./, "")}`];
@@ -96,7 +113,10 @@ export default function CookieConsent() {
   useEffect(() => {
     if (!GA_ID) return;
     const choice = readChoice();
-    if (choice === "granted") loadGA();
+    if (choice === "granted") {
+      loadGA();
+      notifyVisit();
+    }
     else if (choice === null) setOpen(true);
 
     const reopen = () => setOpen(true);
@@ -110,6 +130,7 @@ export default function CookieConsent() {
     saveChoice("granted");
     setOpen(false);
     loadGA();
+    notifyVisit();
   };
 
   const reject = () => {

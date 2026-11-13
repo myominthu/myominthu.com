@@ -46,6 +46,12 @@ export default async function Privacy() {
               loads these tags, is also loaded only after you accept.
             </li>
             <li>
+              <strong>Visit alerts (only if you accept cookies).</strong> When you open a page, I
+              receive a private Telegram message with the page, your approximate city and country,
+              the referring website, and your device type (for example &quot;Mobile · Android ·
+              Chrome&quot;). Your IP address is not included.
+            </li>
+            <li>
               <strong>Hosting logs.</strong> The site is hosted on Vercel, which keeps short-lived
               technical logs (such as IP address, time and requested page) to run and secure the
               service.
@@ -103,19 +109,23 @@ export default async function Privacy() {
 
           <h2>3. Why I use it</h2>
           <p>
-            To understand which content is useful and improve the site. The legal basis is your
+            To understand which content is useful, who is interested in my work, and to improve
+            the site. The legal basis is your
             consent, which you can withdraw at any time.
           </p>
 
           <h2>4. Who receives it</h2>
           <p>
-            Google (Analytics and Tag Manager) and Vercel (hosting) act as service providers and may process data
+            Google (Analytics and Tag Manager), Telegram (visit alerts) and Vercel (hosting) act as service providers and may process data
             outside your country, including in the United States. I do not sell or share your data
             for advertising, and Google signals and ad personalisation are turned off.
           </p>
 
           <h2>5. How long it is kept</h2>
-          <p>Analytics data is kept for up to 14 months, then deleted automatically.</p>
+          <p>
+            Analytics data is kept for up to 14 months, then deleted automatically. Visit alerts
+            are kept in my Telegram chat for up to 12 months.
+          </p>
 
           <h2>6. Your rights</h2>
           <p>
