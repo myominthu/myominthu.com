@@ -25,6 +25,8 @@ const nextConfig = {
     return [
       { source: "/about", destination: "/#experience", permanent: true },
       { source: "/services", destination: "/#services", permanent: true },
+      { source: "/barcamp2026", destination: "/varcamp2026", permanent: false },
+      { source: "/varcamp", destination: "/varcamp2026", permanent: false },
     ];
   },
 };
