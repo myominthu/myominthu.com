@@ -1,0 +1,298 @@
+/* BarCamp Yangon 2026 slide page */
+.vc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.vc-page {
+  background: #08111d;
+  min-height: 100dvh;
+}
+
+.vc-deck {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100dvh;
+  background: #08111d;
+  color: #f5f2eb;
+  font-family: "Rubik", Arial, sans-serif;
+}
+
+.vc-bar,
+.vc-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px clamp(12px, 3vw, 32px);
+}
+
+.vc-home {
+  color: #f5f2eb;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+.vc-home span {
+  color: #f5a623;
+}
+.vc-event {
+  margin: 0 auto;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f5a623;
+}
+.vc-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.vc-deck button {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #253650;
+  background: #0e1a2b;
+  color: #f5f2eb;
+  cursor: pointer;
+}
+.vc-deck button:hover:not(:disabled) {
+  border-color: #f5a623;
+  color: #f5a623;
+}
+.vc-deck button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.vc-deck button:focus-visible,
+.vc-home:focus-visible {
+  outline: 2px solid #f5a623;
+  outline-offset: 2px;
+}
+
+.vc-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  margin: 0 clamp(8px, 2vw, 24px);
+  touch-action: pan-y;
+}
+.vc-stage > .vc-fade {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.vc-fade {
+  animation: vc-in 0.35s ease both;
+}
+@keyframes vc-in {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vc-fade {
+    animation: none;
+  }
+}
+
+.vc-canvas {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+.vc-slide {
+  width: 1920px;
+  height: 1080px;
+  transform-origin: 0 0;
+}
+
+.vc-controls .vc-progress {
+  flex: 1;
+  height: 4px;
+  background: #1b2a40;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.vc-progress > div {
+  height: 100%;
+  background: #f5a623;
+  transition: width 0.3s ease;
+}
+.vc-count {
+  margin: 0;
+  min-width: 64px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  color: #c3cfdf;
+}
+
+.vc-deck.is-full .vc-bar {
+  display: none;
+}
+.vc-deck.is-full .vc-canvas {
+  border-radius: 0;
+}
+
+/* Slide content: a fixed canvas, so reset site styles inside it. */
+.vc-slide section {
+  position: relative;
+  box-sizing: border-box;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+.vc-slide section * {
+  box-sizing: border-box;
+}
+.vc-slide :is(h1, h2, h3, p, ul) {
+  margin: 0;
+}
+.vc-slide :is(h1, h2, h3) {
+  letter-spacing: normal;
+}
+.vc-slide a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+.vc-slide table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.vc-slide :is(th, td) {
+  padding: 22px 28px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.3;
+}
+.vc-slide th {
+  font-weight: 700;
+}
+.vc-slide img {
+  display: block;
+  max-width: none;
+}
+
+/* All-slides overview */
+.vc-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  background: #08111d;
+}
+.vc-grid-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px clamp(12px, 3vw, 32px);
+}
+.vc-grid-head p {
+  margin: 0;
+  font-weight: 700;
+}
+.vc-grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 8px clamp(12px, 3vw, 32px) 32px;
+  overflow-y: auto;
+}
+.vc-deck .vc-thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #c3cfdf;
+}
+.vc-deck .vc-thumb.is-active {
+  border-color: #f5a623;
+}
+.vc-thumb-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.vc-thumb .vc-canvas {
+  box-shadow: none;
+  border-radius: 4px;
+}
+
+/* Phone, upright: scrolling list */
+.vc-deck.is-list {
+  display: block;
+  height: auto;
+  min-height: 100dvh;
+}
+.vc-deck.is-list .vc-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #08111d;
+}
+.vc-deck.is-list .vc-event {
+  margin: 0 0 0 auto;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.vc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 4px 12px 0;
+}
+.vc-list-item {
+  scroll-margin-top: 64px;
+}
+.vc-list .vc-canvas {
+  box-shadow: none;
+}
+.vc-hint {
+  margin: 0;
+  padding: 20px 16px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #8a9ab0;
+}
+@media (max-width: 560px) {
+  .vc-deck:not(.is-list) .vc-event {
+    display: none;
+  }
+  .vc-deck:not(.is-list) .vc-tools {
+    margin-left: auto;
+  }
+}
+@media (max-height: 520px) {
+  .vc-bar,
+  .vc-controls {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .vc-deck button {
+    width: 36px;
+    height: 36px;
+  }
+}
