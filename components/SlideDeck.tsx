@@ -94,7 +94,7 @@ export default function SlideDeck({ slides }: { slides: VarcampSlide[] }) {
           <a href="/" className="vc-home">
             ← Myo Min Thu <span>@ DJ</span>
           </a>
-          <p className="vc-event">BarCamp Yangon 2026</p>
+          <p className="vc-event">VarCamp 2026</p>
         </header>
         <SlideList slides={slides} />
         <p className="vc-hint">Turn your phone sideways to present one slide at a time.</p>
@@ -170,7 +170,7 @@ function Presenter({ slides }: { slides: VarcampSlide[] }) {
         <a href="/" className="vc-home">
           ← Myo Min Thu <span>@ DJ</span>
         </a>
-        <p className="vc-event">BarCamp Yangon 2026</p>
+        <p className="vc-event">VarCamp 2026</p>
         <div className="vc-tools">
           <button onClick={() => setGrid(true)} aria-label="Show all slides" title="All slides (G)">
             <Grid3x3 size={20} aria-hidden="true" />

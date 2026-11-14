@@ -84,7 +84,7 @@ const nav = [
   { href: "#services", label: "Services" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
-  { href: "/varcamp2026", label: "BarCamp 2026" },
+  { href: "/varcamp2026", label: "VarCamp 2026" },
 ];
 
 const jsonLd = {
