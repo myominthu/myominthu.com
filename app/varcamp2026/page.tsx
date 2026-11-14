@@ -9,7 +9,7 @@ import "./deck.css";
 import SlideDeck from "@/components/SlideDeck";
 import { varcampSlides } from "@/lib/varcamp-slides";
 
-const title = "Myo Min Thu @ DJ in VarCamp 2026 - Robotics & AI Engineering";
+const title = "Myo Min Thu @ DJ at VarCamp 2026 - Robotics & AI Engineering";
 const description =
   "Slides from Myo Min Thu's VarCamp 2026 talk: how to start robotics and AI engineering, free simulators and AI tools, and Myanmar's road to the World Robot Olympiad International Final.";
 
@@ -34,7 +34,7 @@ export default async function Varcamp2026() {
 
   return (
     <main id="main" className="vc-page">
-      <h1 className="vc-sr">Myo Min Thu @ DJ in VarCamp 2026: Robotics & AI Engineering and International Robotics Competition</h1>
+      <h1 className="vc-sr">Myo Min Thu @ DJ at VarCamp 2026: Robotics & AI Engineering and International Robotics Competition</h1>
       <SlideDeck slides={varcampSlides} />
     </main>
   );
